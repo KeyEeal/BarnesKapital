@@ -12,7 +12,7 @@ if (redirectPath) {
 
 ReactDOM.createRoot(document.getElementById("root")!).render(
   <StrictMode>
-    <BrowserRouter basename="/BarnesKapital/">
+    <BrowserRouter>
       <App />
     </BrowserRouter>
   </StrictMode>,
