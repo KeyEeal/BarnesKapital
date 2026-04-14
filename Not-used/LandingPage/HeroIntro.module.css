@@ -1,0 +1,94 @@
+.heroIntro {
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+  height: 63vh; /* initial height */
+  border-bottom-left-radius: 15px;
+  border-bottom-right-radius: 15px;
+  padding: 25px;
+  background-image: url("../images/HeroIntro/5.png");
+  background-size: cover;
+  background-position: center;
+  position: relative;
+  overflow: hidden;
+  transition: height 0.2s ease-out;
+}
+
+/* Typography for hero */
+.intro1 {
+  font-size: 68px; /* Hero heading (golden ratio) */
+  line-height: 1.15;
+  color: #919692;
+  text-shadow: 2px 2px 4px rgba(0,0,0,0.7);
+  margin: 0;
+}
+
+.intro1P {
+  font-size: 26px; /* Hero paragraph (1 step down from heading) */
+  line-height: 1.5;
+  margin-top: 10px;
+}
+
+.intro1 {
+  margin-top: 60px;
+  width: 35%;
+  text-align: left;
+  align-self: flex-start;
+  position: relative;
+  z-index: 2;
+}
+
+.intro2 {
+  font-size: 26px; /* Apply same golden-ratio paragraph size */
+  line-height: 1.5;
+  color: #919692;
+  width: 60%;
+  text-align: right;
+  align-self: flex-end;
+  text-shadow: 2px 2px 4px rgba(0,0,0,0.7);
+  position: relative;
+  z-index: 2;
+}
+
+.heroIntro::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.30);
+  z-index: 1;
+}
+
+/* MOBILE */
+@media (max-width: 767px) {
+  .heroIntro {
+    flex-direction: column;
+    height: auto;
+    padding: 15px;
+  }
+
+  .intro1,
+  .intro2 {
+    width: 100%;
+    text-align: center;
+    align-self: center;
+  }
+
+  .intro1 { 
+    margin-top: 5px; 
+  }
+  .intro2 { 
+    margin-top: 15px; 
+    margin-bottom: 5px; 
+  }
+
+  .intro1 h3 {
+    font-size: 48px; /* Mobile hero heading */
+    line-height: 1.2;
+  }
+
+  .intro1 p,
+  .intro2 {
+    font-size: 20px; /* Mobile hero paragraph */
+    line-height: 1.5;
+  }
+}

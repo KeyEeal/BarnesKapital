@@ -1,0 +1,239 @@
+.section {
+    min-height: 100svh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0;
+    flex-direction: column;
+}
+
+@supports not (height: 100svh) {
+    .section {
+        min-height: 100vh;
+    }
+}
+
+.pageBackground {
+    position: absolute;
+    inset: -15%;
+    background-image: url("@/images/background/BARNES\ KAPITAL.svg");
+    background-size: contain;
+    background-position: center;
+    z-index: 0;
+    will-change: transform;
+}
+
+.who,
+.KP1,
+.portfolio,
+.closing,
+.phil,
+.invest,
+.KP2,
+.trustCred {
+    margin-inline: auto;
+    text-align: center;
+    max-width: 720px;
+}
+.intro {
+    margin-top: 25%;
+    margin-inline: auto;
+    text-align: center;
+    max-width: 850px;
+    padding: 0 20px;
+}
+.MD, .GM {
+    width: 250px;
+    height: 250px;
+    margin-bottom: 20px;
+    margin-inline: auto;
+    border-radius: 45%;
+    padding: 5px;
+}
+.MDP, .GMP {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 45%;
+}
+
+.inlineArrow {
+  display: inline-block;
+  width: 16px;
+  height: 16px;
+  vertical-align: middle;
+  margin: 0 4px;
+}
+.inlineArrowGif {
+  display: inline-block;
+  width: 40px;
+  height: 40px;
+  vertical-align: middle;
+  margin: 0 4px;
+}
+.swipeTextCoFounders{
+    display: none;
+}
+.swipeText {
+    position: absolute;
+    bottom: 80px;
+    right: 20px;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    font-size: 16px;
+    color: white;
+    z-index: 1000;
+}
+
+
+/* Fullpage Navigation */
+
+/* Tell CSS Modules these are global selectors */
+:global(.fp-left) {
+    left: 20px; /* distance from page edge */
+}
+
+:global(#fp-nav ul li) {
+    margin: 18px 0 !important;
+    position: relative;
+}
+
+:global(#fp-nav ul li a span) {
+    width: 10px !important;
+    height: 10px !important;
+}
+
+
+:global(.fp-left .fp-tooltip) {
+    position: absolute;
+    left: -160px; /* distance from dot */
+    top: 50%;
+    transform: translateY(-40%);
+    background: rgba(35, 48, 40, 0.8);
+    color: white;
+    font-size: 14px;
+    font-weight: 500;
+    padding: 6px 12px;
+    border-radius: 4px;
+    white-space: nowrap;
+    opacity: 0;
+    pointer-events: none;
+    z-index: 10;
+}
+
+:global(.fp-left .fp-tooltip::after) {
+    content: "";
+    position: absolute;
+    right: -12px;
+    top: 50%;
+    transform: translateY(-50%);
+    border: 6px solid transparent;
+    border-left-color: rgba(35, 48, 40, 0.8);
+    opacity: 1 !important;
+}
+
+:global(.fp-slidesNav) {
+  position: fixed;
+  bottom: 0;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+:global(.fp-slidesNav ul li) {
+  margin: 0 30px !important;
+}
+
+:global(.fp-slidesNav ul li a span) {
+  width: 20px;
+  height: 20px;
+  background: transparent;
+  border: 2px solid white;
+}
+
+:global(.fp-slidesNav ul li a.active span) {
+  background: rgba(35, 48, 40, 1);
+}
+
+:global(.fp-slidesNav ul li a) {
+    position: relative;
+    display: inline-block;
+}
+
+
+:global(.fp-slidesNav ul li a:hover::after),
+:global(.fp-slidesNav ul li a.active::after) {
+  opacity: 1;
+}
+
+/* MOBILE */
+@media (max-width: 767px) {
+    .pageBackground{
+        background-size: cover;
+    }
+
+
+    .section[data-anchor="cofounders"] {
+        display: flex;
+        flex-direction: column;
+        gap: 48px;
+    }
+
+    .section[data-anchor="cofounders"] .slide {
+        width: 100%;
+        height: auto;
+    }
+
+    :global(#fp-nav),
+    :global(.fp-slidesNav),
+    :global(.fp-tooltip) {
+        display: none !important;
+    }
+    :global(.fp-controlArrow),
+    :global(.fp-slidesNav) {
+    display: none !important;
+    }
+
+    .who,
+    .KP1,
+    .KP2,
+    .portfolio,
+    .closing,
+    .phil,
+    .invest,
+    .trustCred {
+        padding: 0 20px;
+        max-width: 100%;
+    }
+
+    h1 {
+        font-size: clamp(28px, 6vw, 36px);
+        line-height: 1.2;
+    }
+
+    h2 {
+        font-size: 24px;
+    }
+
+    p {
+        font-size: 16px;
+        line-height: 1.6;
+    }
+
+    .MD, .GM {
+    width: 150px;
+    height: 150px;
+    margin-bottom: 20px;
+    margin-inline: auto;
+    border-radius: 45%;
+    }
+    .MDP, .GMP {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 45%;
+    }
+    .swipeText, .swipeTextCoFounders {
+    display: block;
+    }
+}
