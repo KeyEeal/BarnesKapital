@@ -8,6 +8,11 @@ function Footer() {
         <p>Private & Discreet | Long-Term Value</p>
         <p>Contact: info@barneskapital.com</p>
         <p>This website uses fullPage.js</p>
+        <p>
+          <a href="https://github.com/KeyEeal/BarnesKapital">
+            Click here to get Open Source files for this website.
+          </a>
+        </p>
       </div>
     </footer>
   );
