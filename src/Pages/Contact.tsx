@@ -1,10 +1,10 @@
 import styles from "./css/Contact.module.css";
-import ContactBody from "../componentsContactPage/ContactBody";
+import ContactInfo from "../componentsContactPage/ContactBody";
 
 function Contact() {
   return (
     <div className={styles.divBody}>
-      <ContactBody />
+      <ContactInfo />
     </div>
   );
 }

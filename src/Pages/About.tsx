@@ -1,10 +1,10 @@
-import AboutStory from "../componentsAboutPage/AboutStory";
+import AboutInfo from "../componentsAboutPage/AboutStory";
 import styles from "./css/About.module.css";
 
 function About() {
   return (
     <div className={styles.divBody}>
-      <AboutStory />
+      <AboutInfo />
     </div>
   );
 }

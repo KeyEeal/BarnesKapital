@@ -7,7 +7,7 @@ import styles from "./css/ContactBody.module.css";
 import DR from "@/images/arrow/Arrow-down.svg";
 import DRG from "@/images/arrow/Arrow-down-gif.gif";
 
-function ContactBody() {
+function ContactInfo() {
   useEffect(() => {
     // Initialize fullpage
     const fpInstance = new fullpage("#fullpage", {
@@ -125,4 +125,4 @@ function ContactBody() {
   );
 }
 
-export default ContactBody;
+export default ContactInfo;

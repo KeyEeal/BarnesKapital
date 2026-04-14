@@ -11,7 +11,7 @@ import LR from "@/images/arrow/Arrow-left.svg";
 import DR from "@/images/arrow/Arrow-down.svg";
 import DRG from "@/images/arrow/Arrow-down-gif.gif";
 
-function AboutStory() {
+function AboutInfo() {
   useEffect(() => {
     // Initialize fullpage
     const fpInstance = new fullpage("#fullpage", {
@@ -244,4 +244,4 @@ function AboutStory() {
   );
 }
 
-export default AboutStory;
+export default AboutInfo;
