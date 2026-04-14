@@ -10,7 +10,7 @@ import DRG from "@/images/arrow/Arrow-down-gif.gif";
 function ContactBody() {
   useEffect(() => {
     // Initialize fullpage
-    new fullpage("#fullpage", {
+    const fpInstance = new fullpage("#fullpage", {
       credits: {
         enabled: true,
         label: "Made with fullpage.js",
@@ -43,6 +43,9 @@ function ContactBody() {
         "SocialsInfo",
       ],
     });
+    return () => {
+      fpInstance.destroy("all");
+    };
   }, []);
   return (
     <div className={styles.pageWrapper}>
