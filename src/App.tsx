@@ -13,8 +13,8 @@ function App() {
     <Routes>
       <Route element={<MainLayout />}>
         <Route path="/" element={<LandingPage />} />
-        <Route path="/About" element={<About />} />
-        <Route path="/Contact" element={<Contact />} />
+        <Route path="/about" element={<About />} />
+        <Route path="/contact" element={<Contact />} />
       </Route>
     </Routes>
   );

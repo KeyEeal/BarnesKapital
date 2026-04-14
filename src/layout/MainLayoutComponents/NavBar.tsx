@@ -59,7 +59,7 @@ function NavBar() {
               </Link>
             </li>
             <li className="nav-item">
-              <Link to="/About" className="nav-link" onClick={handleNavClick}>
+              <Link to="/about" className="nav-link" onClick={handleNavClick}>
                 <h5>About</h5>
                 {/* 
                 <img
@@ -71,7 +71,7 @@ function NavBar() {
               </Link>
             </li>
             <li className="nav-item">
-              <Link to="/Contact" className="nav-link" onClick={handleNavClick}>
+              <Link to="/contact" className="nav-link" onClick={handleNavClick}>
                 <h5>Contact</h5>
                 {/*
                 <img
