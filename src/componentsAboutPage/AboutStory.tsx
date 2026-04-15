@@ -1,6 +1,5 @@
 import "bootstrap/dist/css/bootstrap.min.css";
 import "bootstrap/dist/js/bootstrap.bundle.min.js";
-import "fullpage.js/dist/fullpage.min.css";
 import styles from "./css/AboutStory.module.css";
 import MD from "@/images/about/K-Placeholder.png";
 import GM from "@/images/about/B-Placeholder.png";

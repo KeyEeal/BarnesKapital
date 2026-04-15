@@ -1,6 +1,5 @@
 import "bootstrap/dist/css/bootstrap.min.css";
 import "bootstrap/dist/js/bootstrap.bundle.min.js";
-import "fullpage.js/dist/fullpage.min.css";
 import styles from "./css/ContactBody.module.css";
 import DR from "@/images/arrow/Arrow-down.svg";
 import DRG from "@/images/arrow/Arrow-down-gif.gif";

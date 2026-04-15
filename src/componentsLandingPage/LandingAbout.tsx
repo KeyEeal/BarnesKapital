@@ -1,5 +1,4 @@
 import "bootstrap/dist/css/bootstrap.min.css";
-import "fullpage.js/dist/fullpage.min.css";
 import styles from "./css/LandingAbout.module.css";
 import MD from "@/images/about/K-Placeholder.png";
 import GM from "@/images/about/B-Placeholder.png";

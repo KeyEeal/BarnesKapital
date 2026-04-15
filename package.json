@@ -13,7 +13,6 @@
     "animejs": "^4.2.2",
     "bootstrap": "^5.3.8",
     "framer-motion": "^12.24.8",
-    "fullpage.js": "^4.0.40",
     "gsap": "^3.14.2",
     "motion": "^12.24.8",
     "react": "^19.2.0",
