@@ -1,6 +1,4 @@
 import "bootstrap/dist/css/bootstrap.min.css";
-import { useEffect } from "react";
-import fullpage from "fullpage.js";
 import "fullpage.js/dist/fullpage.min.css";
 import styles from "./css/LandingAbout.module.css";
 import MD from "@/images/about/K-Placeholder.png";
@@ -11,87 +9,11 @@ import DR from "@/images/arrow/Arrow-down.svg";
 import DRG from "@/images/arrow/Arrow-down-gif.gif";
 
 function LandingAbout() {
-  useEffect(() => {
-    // Initialize fullpage
-    const fpInstance = new fullpage("#fullpage", {
-      credits: {
-        enabled: true,
-        label: "Made with fullpage.js",
-        position: "right",
-      },
-      lisenceKey: "GPLv3", //Request pending
-      verticalCentered: true,
-      scrollingSpeed: 700,
-
-      navigation: true,
-      navigationPosition: "left",
-      navigationTooltips: [
-        "Introduction",
-        "Who are We?",
-        "How We Invest",
-        "Our Philosophy",
-        "Co-Founders",
-        "Portfolio",
-        "Trust and Credit",
-        "Closing",
-      ],
-      showActiveTooltip: true,
-
-      slidesNavigation: true,
-      controlArrows: true,
-      loopHorizontal: false,
-
-      anchors: [
-        "intro",
-        "who",
-        "invest",
-        "phil",
-        "cofounders", // horizontal slides section
-        "portfolio",
-        "trustCred",
-        "closing",
-      ],
-    });
-
-    // ------------------------------------
-    // Desktop-only wheel hijack (IMPORTANT)
-    // ------------------------------------
-    const isDesktop = window.matchMedia("(pointer: fine)").matches;
-
-    const handleWheel = (event: WheelEvent) => {
-      const section = fullpage_api.getActiveSection();
-      if (section?.anchor === "cofounders") {
-        event.preventDefault();
-        event.deltaY < 0
-          ? fullpage_api.moveSlideLeft()
-          : fullpage_api.moveSlideRight();
-      }
-    };
-
-    const el = document.getElementById("fullpage");
-    const isTouch =
-      window.matchMedia("(pointer: coarse)").matches &&
-      window.matchMedia("(hover: none)").matches;
-
-    if (!isTouch) {
-      el?.addEventListener("wheel", handleWheel, { passive: false });
-    }
-
-    if (isDesktop) {
-      el?.addEventListener("wheel", handleWheel, { passive: false });
-    }
-
-    return () => {
-      el?.removeEventListener("wheel", handleWheel);
-      fpInstance.destroy("all");
-    };
-  }, []);
-
   return (
     <div className={styles.pageWrapper}>
       <div className={styles.pageBackground} />
 
-      <div id="fullpage">
+      <div className={styles.fullpage}>
         {/* Vertical Sections */}
         <div className="section" data-anchor="intro">
           <div className={styles.intro}>

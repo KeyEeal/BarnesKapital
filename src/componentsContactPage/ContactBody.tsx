@@ -1,57 +1,15 @@
 import "bootstrap/dist/css/bootstrap.min.css";
 import "bootstrap/dist/js/bootstrap.bundle.min.js";
-import { useEffect } from "react";
-import fullpage from "fullpage.js";
 import "fullpage.js/dist/fullpage.min.css";
 import styles from "./css/ContactBody.module.css";
 import DR from "@/images/arrow/Arrow-down.svg";
 import DRG from "@/images/arrow/Arrow-down-gif.gif";
 
 function ContactInfo() {
-  useEffect(() => {
-    // Initialize fullpage
-    const fpInstance = new fullpage("#fullpage", {
-      credits: {
-        enabled: true,
-        label: "Made with fullpage.js",
-        position: "right",
-      },
-      lisenceKey: "GPLv3", //Request pending
-      autoScrolling: true,
-      verticalCentered: true,
-      scrollingSpeed: 700,
-
-      navigation: true,
-      navigationPosition: "left",
-      navigationTooltips: [
-        "Location",
-        "Contact",
-        "Our pace",
-        "Context",
-        "Professional Presence",
-      ],
-      showActiveTooltip: true,
-
-      slidesNavigation: true,
-      controlArrows: true,
-      loopHorizontal: false,
-
-      anchors: [
-        "AddressInfo",
-        "CommsInfo",
-        "OppHoursInfo",
-        "MapInfo",
-        "SocialsInfo",
-      ],
-    });
-    return () => {
-      fpInstance.destroy("all");
-    };
-  }, []);
   return (
     <div className={styles.pageWrapper}>
       <div className={styles.pageBackground} />
-      <div id="fullpage">
+      <div className={styles.fullpage}>
         <div className="section" data-anchor="AddressInfo">
           <div className={styles.Add}>
             <h1>Location</h1>

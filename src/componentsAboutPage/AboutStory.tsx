@@ -1,7 +1,5 @@
 import "bootstrap/dist/css/bootstrap.min.css";
 import "bootstrap/dist/js/bootstrap.bundle.min.js";
-import { useEffect } from "react";
-import fullpage from "fullpage.js";
 import "fullpage.js/dist/fullpage.min.css";
 import styles from "./css/AboutStory.module.css";
 import MD from "@/images/about/K-Placeholder.png";
@@ -12,79 +10,10 @@ import DR from "@/images/arrow/Arrow-down.svg";
 import DRG from "@/images/arrow/Arrow-down-gif.gif";
 
 function AboutInfo() {
-  useEffect(() => {
-    // Initialize fullpage
-    const fpInstance = new fullpage("#fullpage", {
-      credits: {
-        enabled: true,
-        label: "Made with fullpage.js",
-        position: "right",
-      },
-      lisenceKey: "GPLv3", //Request pending
-      autoScrolling: true,
-      verticalCentered: true,
-      scrollingSpeed: 700,
-
-      navigation: true,
-      navigationPosition: "left",
-      navigationTooltips: [
-        "Our Story",
-        "The Mission",
-        "Our Vision",
-        "Our Values",
-        "Our Leaders",
-        "Investment Philosophy",
-        "Our Approach to Partnership",
-        "Ownership",
-        "A Long-Term Orientation",
-      ],
-      showActiveTooltip: true,
-
-      slidesNavigation: true,
-      controlArrows: true,
-      loopHorizontal: false,
-
-      anchors: [
-        "StoryInfo",
-        "MissionInfo",
-        "VisionInfo",
-        "ValuesInfo",
-        "LeadersInfo",
-        "InvestmentInfo",
-        "PartnershipInfo",
-        "OwnershipInfo",
-        "TimeInfo",
-      ],
-    });
-
-    // -----------------------------
-    // Wheel Hijack for Horizontal Scroll
-    // -----------------------------
-    const handleWheel = (event: WheelEvent) => {
-      const section = fullpage_api.getActiveSection();
-      if (section?.anchor === "LeadersInfo") {
-        event.preventDefault(); // stop vertical scroll
-        if (event.deltaY < 0) {
-          fullpage_api.moveSlideLeft();
-        } else if (event.deltaY > 0) {
-          fullpage_api.moveSlideRight();
-        }
-      }
-    };
-
-    const el = document.getElementById("fullpage");
-    el?.addEventListener("wheel", handleWheel, { passive: false });
-
-    return () => {
-      el?.removeEventListener("wheel", handleWheel);
-      fpInstance.destroy("all");
-    };
-  }, []);
-
   return (
     <div className={styles.pageWrapper}>
       <div className={styles.pageBackground} />
-      <div id="fullpage">
+      <div className={styles.fullpage}>
         {/* Vertical Sections */}
         <div className="section" data-anchor="StoryInfo">
           <div className={styles.story}>

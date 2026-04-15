@@ -6,10 +6,9 @@ function Footer() {
       <div className={styles.footerContent}>
         <p>&copy; 2025 Barnes Kapital. All rights reserved.</p>
         <p>Private & Discreet | Long-Term Value</p>
-        <p>This website was built with fullPage.js</p>
-        <p></p>
         <p>
-          Source code available under GPL-3.0 on GitHub:
+          This website was built with fullPage.js. Source code available under
+          GPL-3.0 on GitHub:
           <a href="https://github.com/KeyEeal/BarnesKapital"> Here</a>
         </p>
       </div>
