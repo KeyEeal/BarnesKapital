@@ -3,8 +3,6 @@ import "fullpage.js/dist/fullpage.min.css";
 import styles from "./css/LandingAbout.module.css";
 import MD from "@/images/about/K-Placeholder.png";
 import GM from "@/images/about/B-Placeholder.png";
-import RR from "@/images/arrow/Arrow-right.svg";
-import LR from "@/images/arrow/Arrow-left.svg";
 import DR from "@/images/arrow/Arrow-down.svg";
 import DRG from "@/images/arrow/Arrow-down-gif.gif";
 
