@@ -1,7 +1,7 @@
 import { Link } from "react-router-dom";
 import "bootstrap/dist/css/bootstrap.min.css";
 import "bootstrap/dist/js/bootstrap.bundle.min.js";
-import burgerMenu from "@/images/burgerMenu/burgerMenu.svg";
+//import burgerMenu from "@/images/burgerMenu/burgerMenu.svg";
 //import home from "./images/nav/home.svg";
 //import contact from "./images/nav/contact-us.svg";
 //import about from "./images/nav/about-us.svg";
