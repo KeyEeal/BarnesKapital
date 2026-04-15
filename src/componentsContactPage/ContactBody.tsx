@@ -10,7 +10,7 @@ function ContactInfo() {
     <div className={styles.pageWrapper}>
       <div className={styles.pageBackground} />
       <div className={styles.fullpage}>
-        <div className="section" data-anchor="AddressInfo">
+        <div className={styles.section} data-anchor="AddressInfo">
           <div className={styles.Add}>
             <h1>Location</h1>
             <p>
@@ -20,7 +20,6 @@ function ContactInfo() {
               directly when appropriate.
             </p>
             <p className={styles.swipeText}>
-              Swipe down
               <img
                 className={styles.inlineArrowGif}
                 src={DRG}
@@ -29,7 +28,7 @@ function ContactInfo() {
             </p>
           </div>
         </div>
-        <div className="section" data-anchor="CommsInfo">
+        <div className={styles.section} data-anchor="CommsInfo">
           <div className={styles.Comms}>
             <h1>Contact</h1>
             <p>
@@ -43,7 +42,7 @@ function ContactInfo() {
             </p>
           </div>
         </div>
-        <div className="section" data-anchor="OppHoursInfo">
+        <div className={styles.section} data-anchor="OppHoursInfo">
           <div className={styles.OppHours}>
             <h1>Our Pace</h1>
             <p>
@@ -56,7 +55,7 @@ function ContactInfo() {
             </p>
           </div>
         </div>
-        <div className="section" data-anchor="MapInfo">
+        <div className={styles.section} data-anchor="MapInfo">
           <div className={styles.Map}>
             <h1>Context</h1>
             <p>
@@ -69,7 +68,7 @@ function ContactInfo() {
             </p>
           </div>
         </div>
-        <div className="section" data-anchor="SocialsInfo">
+        <div className={styles.section} data-anchor="SocialsInfo">
           <div className={styles.Socials}>
             <h1>Professional Presence</h1>
             <p>

@@ -1,133 +1,370 @@
+/* ============================================================
+   NAVBAR SHELL
+   ============================================================ */
 .myNavbar {
-  width: 100%;
-  height: 9vh;
-  background-color: #121814;
-  color: #919692;
-
-  position: fixed;
-  top: 0;
-  left: 0;
-  z-index: 1050
+    width: 100%;
+    min-height: 56px;
+    height: 9vh;
+    max-height: 72px;
+    background-color: #121814;
+    color: #919692;
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 1050;
+    overflow: visible;
+    box-sizing: border-box;
 }
 
-.logo {
-  height: 40px;
-  width: auto;
-  border-radius: 20px;
-}
-
-.home {
-  height: 40px;
-  width: auto;
-  background-color: #3F4A43;
-  border-radius: 20px;
-}
-.about {
-  height: 40px;
-  width: auto;
-  background-color: #3F4A43;
-  border-radius: 20px;
-}
-.contact{
-  height: 40px;
-  width: auto;
-  background-color: #3F4A43;
-  border-radius: 20px;
-}
-
+/* ============================================================
+   CONTAINER
+   ============================================================ */
 .containerFluid {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  gap: 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 12px;
+    width: 100%;
+    max-width: 100%;
+    padding: 0 16px;
+    box-sizing: border-box;
+    flex-wrap: nowrap;
+    /* FIX: was overflow: hidden — this was clipping the absolutely-positioned
+       dropdown panel on all breakpoints. Changed to visible so the collapse
+       panel can escape the container bounds correctly. */
+    overflow: visible;
+    position: relative; /* FIX: establishes containing block for abs-positioned collapse */
 }
 
+/* ============================================================
+   BRAND / LOGO
+   ============================================================ */
 .navbarBrand {
-  margin-right: 0px;
-  margin-left: 10px;
-  color: #919692;
-  text-shadow: 2px 2px 4px rgba(0,0,0,0.7);
-}
-
-
-h5{
-  color: #919692;
-  text-shadow: 2px 2px 4px rgba(0,0,0,0.7);
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    margin: 0;
+    color: #919692;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7);
+    flex-shrink: 0;
+    min-width: 0;
+    white-space: nowrap;
 }
 
 .logo {
-  border: 1px solid #919692;
+    height: 40px;
+    width: 40px;
+    flex-shrink: 0;
+    border-radius: 20px;
+    border: 1px solid #919692;
+    object-fit: contain;
 }
 
-.navbar-toggler-icon {
-  display: none;
+/* ============================================================
+   NAV BUTTONS (home / about / contact)
+   ============================================================ */
+.home,
+.about,
+.contact {
+    height: 40px;
+    width: auto;
+    background-color: #3F4A43;
+    border-radius: 20px;
+    flex-shrink: 0;
+    white-space: nowrap;
 }
 
+/* ============================================================
+   TYPOGRAPHY
+   ============================================================ */
+h5 {
+    color: #919692;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7);
+    margin: 0;
+}
 
-@media (max-width: 767px) { /* Below lg breakpoint */
-  .logo {
-    width: 40px; /* Shrink logo for mobile */
-    height: auto;
-  }
-  .navbarBrand {
-    font-size: 1.2rem; /* Smaller title font */
-  }
+/* ============================================================
+   BOOTSTRAP OVERRIDES — global (all breakpoints)
+   ============================================================ */
 
-  :global(.navbar-nav .nav-link) {
-    padding: 0.6rem 0.6rem 0.6rem 0.6rem; /* More touch-friendly spacing */
-    font-size: 1rem;
-  }
+/*
+ * Hide default Bootstrap toggler icon at all sizes.
+ */
+:global(.navbar-toggler-icon) {
+    display: none;
+}
+
+/*
+ * Prevent Bootstrap's default .navbar-nav from creating
+ * horizontal overflow at any width.
+ */
+:global(.navbar-nav) {
+    flex-wrap: wrap;
+    max-width: 100%;
+}
+
+/* ============================================================
+   FIX: BOOTSTRAP BREAKPOINT CONFLICT ZONE (992px – 1079px)
+   Bootstrap's navbar-expand-lg activates at 992px, surfacing
+   the inline nav and hiding the toggler before our 1080px
+   desktop layout is ready. These overrides suppress Bootstrap's
+   expand behaviour and force hamburger mode until 1080px,
+   closing the undefined intermediate layout state entirely.
+   ============================================================ */
+@media (min-width: 992px) and (max-width: 1079px) {
+    /* Force the toggler to remain visible — Bootstrap hides it at lg */
+    :global(.navbar-toggler) {
+        display: flex !important;
+        flex-shrink: 0;
+        width: 44px;
+        height: 44px;
+        min-width: 44px;
+        padding: 0;
+        border: none;
+        border-radius: 8px;
+        background-image: url("@/images/burgerMenu/burgerMenu.svg");
+        background-repeat: no-repeat;
+        background-position: center;
+        background-size: 28px 28px;
+        background-color: transparent;
+        -webkit-appearance: none;
+        appearance: none;
+        outline: none;
+        box-shadow: none;
+        cursor: pointer;
+        align-items: center;
+        justify-content: center;
+    }
+
+    /* Force collapse panel to stay collapsed until toggled — Bootstrap
+       makes it display:flex at 992px via navbar-expand-lg */
+    :global(.navbar-collapse) {
+        display: none !important;
+        position: absolute;
+        top: 100%;
+        right: 0;
+        left: auto;
+        width: 200px;
+        max-width: calc(100vw - 32px);
+        background-color: #121814;
+        border-top: 1px solid rgba(145, 150, 146, 0.2);
+        border-radius: 0 0 8px 8px;
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.5);
+        padding: 0.75rem 0;
+        z-index: 1040;
+        overflow: hidden;
+        flex-direction: column;
+    }
+
+    /* When Bootstrap adds .show, restore visibility */
+    :global(.navbar-collapse.show) {
+        display: block !important;
+    }
+}
+
+/* ============================================================
+   TABLET & BELOW — hamburger menu active
+   FIX: extended upper bound from 1024px → 1079px to close the
+   gap between the old 1024px ceiling and the 1080px desktop
+   floor. Previously 1024px–1079px had no hamburger rules,
+   causing the toggler to vanish and the layout to break.
+   ============================================================ */
+@media (max-width: 1079px) {
+
+    /* --- Toggler button ------------------------------------ */
+    :global(.navbar-toggler) {
+        flex-shrink: 0;
+        width: 44px;
+        height: 44px;
+        min-width: 44px;
+        padding: 0;
+        border: none;
+        border-radius: 8px;
+        background-image: url("@/images/burgerMenu/burgerMenu.svg");
+        background-repeat: no-repeat;
+        background-position: center;
+        background-size: 28px 28px;
+        background-color: transparent;
+        -webkit-appearance: none;
+        appearance: none;
+        outline: none;
+        box-shadow: none;
+        cursor: pointer;
+    }
+
+    :global(.navbar-toggler):focus,
+    :global(.navbar-toggler):focus-visible {
+        outline: none;
+        box-shadow: none;
+    }
+
+    :global(.navbar-toggler-icon) {
+        display: none;
+    }
+
+    /* --- Brand scaling ------------------------------------ */
+    .logo {
+        height: 36px;
+        width: 36px;
+    }
+
+    .navbarBrand {
+        font-size: 1.1rem;
+    }
+
+    /* --- Collapse dropdown panel --------------------------
+     * FIX: anchored to .containerFluid (position: relative)
+     * rather than relying on .myNavbar's fixed context.
+     * This guarantees top: 100% resolves to just below the
+     * navbar bar regardless of viewport scroll state, and
+     * right: 0 aligns to the container's right edge instead
+     * of the viewport edge.
+     * ---------------------------------------------------- */
+    :global(.navbar-collapse) {
+        position: absolute;
+        top: 100%;
+        right: 0;
+        left: auto;
+        width: 180px;
+        max-width: calc(100vw - 32px);
+        background-color: #121814;
+        border-top: 1px solid rgba(145, 150, 146, 0.2);
+        border-radius: 0 0 8px 8px;
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.5);
+        padding: 0.75rem 0;
+        z-index: 1040;
+        overflow: hidden;
+    }
+
+    :global(.navbar-collapse) :global(.navbar-nav),
+    :global(.navbar-collapse) :global(.nav-item),
+    :global(.navbar-collapse) :global(.nav-link) {
+        background-color: #121814;
+        width: 100%;
+        box-sizing: border-box;
+    }
+
+    :global(.navbar-nav .nav-link) {
+        padding: 0.65rem 1.25rem;
+        font-size: 1rem;
+        color: #919692;
+        white-space: nowrap;
+        display: block;
+        width: 100%;
+    }
+
+    :global(.navbar-nav .nav-link):hover {
+        background-color: rgba(63, 74, 67, 0.4);
+    }
+}
+
+/* ============================================================
+   SMALL PHONES (320px–374px)
+   ============================================================ */
+@media (max-width: 374px) {
+    .containerFluid {
+        padding: 0 10px;
+        gap: 8px;
+    }
+
+    .logo {
+        height: 32px;
+        width: 32px;
+    }
+
+    .navbarBrand {
+        font-size: 0.95rem;
+    }
+
+    :global(.navbar-toggler) {
+        width: 40px;
+        height: 40px;
+        min-width: 40px;
+        background-size: 24px 24px;
+    }
 
     :global(.navbar-collapse) {
-    position: absolute;
-    top: 100%;
-    right: 30px;
-    width: 120px;
-    border-radius: 5px;
-    box-shadow: 2px 2px 4px rgba(0,0,0,0.7);
-
-    background-color: #121814;
-    z-index: 1040;
-    padding: 1rem 0;
-
-    border-top: 1px solid rgba(145, 150, 146, 0.2);
-  }
-  :global(.navbar-toggler){
-    width: 50px;
-    height: 40px;
-  }
-
-  :global(.navbar-collapse) :global(.navbar-nav) {
-    background-color: #121814;
-  }
-
-  :global(.navbar-collapse) :global(.nav-item) {
-    background-color: #121814;
-  }
-
-  :global(.navbar-collapse) :global(.nav-link) {
-    background-color: #121814;
-  }
-
-.navbar-toggler {
-    width: 40px;
-    height: 40px;
-    padding: 0;
-    border: none;
-    background-image: url("@/images/burgerMenu/burgerMenu.svg");
-    background-repeat: no-repeat;
-    background-position: center;
-    background-size: contain;
+        width: 160px;
+    }
 }
 
-.navbar-toggler-icon {
-    display: none; /* hide default Bootstrap icon */
+/* ============================================================
+   STANDARD MOBILE (375px–767px)
+   ============================================================ */
+@media (min-width: 375px) and (max-width: 767px) {
+    .navbarBrand {
+        font-size: 1.2rem;
+    }
 }
 
-.navbar-toggler:focus {
-    outline: none;
-    box-shadow: none;
+/* ============================================================
+   LARGE TABLETS (768px–1079px)
+   FIX: upper bound raised from 1024px → 1079px to match the
+   new unified hamburger ceiling and prevent a dead zone where
+   no tablet padding rules applied between 1024px and 1079px.
+   ============================================================ */
+@media (min-width: 768px) and (max-width: 1079px) {
+    .containerFluid {
+        padding: 0 24px;
+    }
+
+    .navbarBrand {
+        font-size: 1.25rem;
+    }
+
+    :global(.navbar-collapse) {
+        width: 200px;
+        border-radius: 0 0 8px 8px;
+    }
 }
 
+/* ============================================================
+   DESKTOP (1080px+) — inline nav links active
+   ============================================================ */
+@media (min-width: 1080px) {
+    .containerFluid {
+        /* FIX: switched from justify-content: center to space-between.
+           center caused all items to stack toward the middle at wider
+           viewports; with no max-width cap they could overflow the right
+           edge. space-between distributes brand ↔ nav ↔ actions across
+           the full container width, preventing horizontal overflow. */
+        justify-content: space-between;
+        gap: 20px;
+        padding: 0 24px;
+    }
 
+    .logo {
+        height: 40px;
+        width: auto;
+    }
+
+    .navbarBrand {
+        font-size: 1.25rem;
+    }
+
+    .home,
+    .about,
+    .contact {
+        height: 40px;
+    }
+
+    /* FIX: added flex: 0 1 auto and max-width on the nav group so items
+       compress gracefully on mid-range desktops instead of overflowing.
+       flex-wrap: nowrap is kept intentionally — items shrink before they
+       wrap, maintaining the single-row desktop layout. */
+    :global(.navbar-nav) {
+        flex-wrap: nowrap;
+        align-items: center;
+        gap: 8px;
+        flex: 0 1 auto;     /* FIX: allow the nav group itself to shrink */
+        max-width: 100%;    /* FIX: hard cap prevents group from exceeding container */
+        overflow: hidden;   /* FIX: clips any residual overflow within the nav group only */
+    }
+
+    /* FIX: individual nav links also need a shrink budget so the browser
+       can compress them before the group overflows the container. */
+    :global(.navbar-nav .nav-link) {
+        flex-shrink: 1;
+        min-width: 0;
+    }
 }

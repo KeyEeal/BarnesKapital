@@ -41,9 +41,7 @@ function NavBar() {
           aria-controls="navbarSupportedContent"
           aria-expanded="false"
           aria-label="Toggle navigation"
-        >
-          <img src={burgerMenu} alt="Toggle Navigation" />
-        </button>
+        ></button>
         <div className="collapse navbar-collapse" id="navbarSupportedContent">
           <ul className="navbar-nav ms-auto mb-2 mb-lg-0">
             <li className="nav-item">

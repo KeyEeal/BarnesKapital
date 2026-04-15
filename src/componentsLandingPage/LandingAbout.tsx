@@ -14,15 +14,13 @@ function LandingAbout() {
       <div className={styles.pageBackground} />
 
       <div className={styles.fullpage}>
-        {/* Vertical Sections */}
-        <div className="section" data-anchor="intro">
+        <div className={styles.section} data-anchor="intro">
           <div className={styles.intro}>
             <h1>
               Faith. Family. Funds. Three principles guiding every decision we
               make.
             </h1>
             <p className={styles.swipeText}>
-              Swipe down
               <img
                 className={styles.inlineArrowGif}
                 src={DRG}
@@ -31,7 +29,7 @@ function LandingAbout() {
             </p>
           </div>
         </div>
-        <div className="section" data-anchor="who">
+        <div className={styles.section} data-anchor="who">
           <div className={styles.who}>
             <h2>Who, and what is Barnes Kapital?</h2>
             <p>
@@ -47,7 +45,7 @@ function LandingAbout() {
           </div>
         </div>
 
-        <div className="section" data-anchor="invest">
+        <div className={styles.section} data-anchor="invest">
           <div className={styles.invest}>
             <h2>Investment Focus</h2>
             <p>
@@ -62,7 +60,7 @@ function LandingAbout() {
           </div>
         </div>
 
-        <div className="section" data-anchor="phil">
+        <div className={styles.section} data-anchor="phil">
           <div className={styles.phil}>
             <h2>How We Think</h2>
             <p>
@@ -79,7 +77,7 @@ function LandingAbout() {
         </div>
 
         {/* Horizontal Slides Section */}
-        <div className="section" data-anchor="cofounders">
+        <div className={styles.section} data-anchor="cofounders">
           <div className="slide" data-slide-tooltip="Konrad Barnes">
             <div className={styles.MD}>
               <img className={styles.MDP} src={MD} alt="Konrad Barnes" />
@@ -93,17 +91,13 @@ function LandingAbout() {
                 guided by patience, restraint, and a commitment to building
                 businesses worth owning for a long time.
               </p>
-              <p className={styles.swipeTextCoFounders}>
-                <img
-                  className={styles.inlineArrow}
-                  src={RR}
-                  alt="Right Arrow"
-                />{" "}
-                for next Co-Founder
+              <p className={styles.swipeText}>
+                <img className={styles.inlineArrow} src={DR} alt="Down Arrow" />
               </p>
             </div>
           </div>
-
+        </div>
+        <div className={styles.section} data-anchor="cofounders">
           <div className="slide" data-slide-tooltip="Bianca Barnes">
             <div className={styles.GM}>
               <img className={styles.GMP} src={GM} alt="Bianca Barnes" />
@@ -117,11 +111,6 @@ function LandingAbout() {
                 grounded perspective shaped by family, faith, and the belief
                 that good work compounds quietly over time.
               </p>
-
-              <p className={styles.swipeTextCoFounders}>
-                <img className={styles.inlineArrow} src={LR} alt="Left Arrow" />{" "}
-                for previous Co-Founder
-              </p>
               <p className={styles.swipeText}>
                 <img className={styles.inlineArrow} src={DR} alt="Down Arrow" />
               </p>
@@ -130,7 +119,7 @@ function LandingAbout() {
         </div>
 
         {/* Remaining Vertical Sections */}
-        <div className="section" data-anchor="portfolio">
+        <div className={styles.section} data-anchor="portfolio">
           <div className={styles.portfolio}>
             <h2>Portfolio Selection</h2>
             <p>
@@ -144,7 +133,7 @@ function LandingAbout() {
           </div>
         </div>
 
-        <div className="section" data-anchor="trustCred">
+        <div className={styles.section} data-anchor="trustCred">
           <div className={styles.trustCred}>
             <h2>Trust & Credibility Building</h2>
             <p>
@@ -159,7 +148,7 @@ function LandingAbout() {
           </div>
         </div>
 
-        <div className="section" data-anchor="closing">
+        <div className={styles.section} data-anchor="closing">
           <div className={styles.closing}>
             <h2>Closing</h2>
             <p>

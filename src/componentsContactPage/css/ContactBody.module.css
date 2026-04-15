@@ -1,10 +1,17 @@
+/* ============================================================
+   SECTION LAYOUT
+   ============================================================ */
 .section {
     min-height: 100svh;
     display: flex;
+    flex-direction: column;
     align-items: center;
     justify-content: center;
     padding: 0;
-    flex-direction: column;
+    scroll-snap-align: start;
+    scroll-snap-stop: always;
+    position: relative;
+    box-sizing: border-box;
 }
 
 @supports not (height: 100svh) {
@@ -13,41 +20,91 @@
     }
 }
 
+/* ============================================================
+   PAGE BACKGROUND
+   ============================================================ */
 .pageBackground {
     position: absolute;
-    inset: -15%;
+    inset: 0;
     background-image: url("@/images/background/BARNES\ KAPITAL.svg");
-    background-size: contain;
+    background-size: cover;
     background-position: center;
     z-index: 0;
     will-change: transform;
 }
 
-/* PRIMARY CONTACT INFO */
+.pageBackground {
+    position: absolute;
+    inset: 0;
+    background-image: url("@/images/background/BARNES\ KAPITAL.svg");
+    background-size: cover;
+    background-position: center;
+    z-index: 0;
+    will-change: transform;
+}
+
+.pageWrapper {
+  position: relative;           /* keeps the background pinned */
+  height: 100vh;                /* ← crucial */
+  width: 100vw;
+  overflow: hidden;             /* prevents body scroll */
+  margin: 0;
+  padding: 0;
+}
+
+/* ============================================================
+   FULLPAGE – the actual vertical scroller (your main container)
+   ============================================================ */
+.fullpage {
+  height: 100%;                            /* fills the locked viewport */
+  overflow-y: auto;                        /* ← vertical only */
+  scroll-snap-type: y mandatory;           /* strong full-page snapping */
+  scroll-behavior: smooth;
+  -webkit-overflow-scrolling: touch;       /* smooth momentum on iOS */
+  scrollbar-width: none;                   /* hide scrollbar (optional) */
+}
+
+.fullpage::-webkit-scrollbar {
+  display: none;
+}
+
+/* ============================================================
+   CONTENT SECTIONS
+   ============================================================ */
 .Add,
 .Comms,
 .OppHours,
 .Map,
 .Socials {
+    width: 100%;
+    padding-inline: 20px;
     margin-inline: auto;
     text-align: center;
-    max-width: 720px;
+    box-sizing: border-box;
+}
+
+/* ============================================================
+   INLINE ICONS
+   ============================================================ */
+.inlineArrow {
+    display: inline-block;
+    width: 16px;
+    height: 16px;
+    vertical-align: middle;
+    margin: 0 4px;
 }
 
 .inlineArrowGif {
-  display: inline-block;
-  width: 40px;
-  height: 40px;
-  vertical-align: middle;
-  margin: 0 4px;
+    display: inline-block;
+    width: 40px;
+    height: 40px;
+    vertical-align: middle;
+    margin: 0 4px;
 }
-.inlineArrow {
-  display: inline-block;
-  width: 16px;
-  height: 16px;
-  vertical-align: middle;
-  margin: 0 4px;
-}
+
+/* ============================================================
+   SWIPE HINTS
+   ============================================================ */
 .swipeText {
     position: absolute;
     bottom: 80px;
@@ -60,33 +117,88 @@
     z-index: 1000;
 }
 
-/* MOBILE */
-@media (max-width: 767px) {
-    .pageBackground{
-        background-size: cover;
+.swipeTextCoFounders {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    font-size: 16px;
+    color: white;
+}
+
+/* ============================================================
+   TYPOGRAPHY — mobile base
+   ============================================================ */
+.section h1 {
+    font-size: clamp(28px, 6vw, 36px);
+    line-height: 1.2;
+}
+
+.section h2 {
+    font-size: 24px;
+}
+
+.section p {
+    font-size: 16px;
+    line-height: 1.6;
+}
+
+/* ============================================================
+   SMALL PHONES (320px–374px)
+   ============================================================ */
+@media (max-width: 374px) {
+    .MD,
+    .GM {
+        width: 120px;
+        height: 120px;
     }
 
-    .Add,
-    .Comms,
-    .OppHours,
-    .Map,
-    .Socials {
-        padding: 0 20px;
-        max-width: 100%;
-    }
-
-    h1 {
-        font-size: clamp(28px, 6vw, 36px);
-        line-height: 1.2;
-    }
-
-    h2 {
-        font-size: 24px;
-    }
-
-    p {
-        font-size: 16px;
-        line-height: 1.6;
+    .section h1 {
+        font-size: clamp(24px, 7vw, 28px);
     }
 }
 
+/* ============================================================
+   TABLET & UP (768px+)
+   ============================================================ */
+@media (min-width: 768px) {
+    .pageBackground {
+        background-size: contain;
+    }
+
+    .story,
+    .mission,
+    .vision,
+    .KP1,
+    .KP2,
+    .values,
+    .invest,
+    .port,
+    .owner,
+    .time {
+        max-width: 720px;
+        padding-inline: 0;
+    }
+
+    .MD,
+    .GM {
+        width: 250px;
+        height: 250px;
+    }
+
+    .swipeTextCoFounders {
+        display: none;
+    }
+
+    .section h1 {
+        font-size: clamp(36px, 4vw, 52px);
+        line-height: 1.15;
+    }
+
+    .section h2 {
+        font-size: 28px;
+    }
+
+    .section p {
+        font-size: 18px;
+    }
+}

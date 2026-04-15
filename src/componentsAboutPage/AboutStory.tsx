@@ -15,7 +15,7 @@ function AboutInfo() {
       <div className={styles.pageBackground} />
       <div className={styles.fullpage}>
         {/* Vertical Sections */}
-        <div className="section" data-anchor="StoryInfo">
+        <div className={styles.section} data-anchor="StoryInfo">
           <div className={styles.story}>
             <h1>What is Our Story?</h1>
             <p>
@@ -28,7 +28,6 @@ function AboutInfo() {
               values, and build something intended to last.
             </p>
             <p className={styles.swipeText}>
-              Swipe to learn more
               <img
                 className={styles.inlineArrowGif}
                 src={DRG}
@@ -37,7 +36,7 @@ function AboutInfo() {
             </p>
           </div>
         </div>
-        <div className="section" data-anchor="MissionInfo">
+        <div className={styles.section} data-anchor="MissionInfo">
           <div className={styles.mission}>
             <h1>The Mission</h1>
             <p>
@@ -51,7 +50,7 @@ function AboutInfo() {
             </p>
           </div>
         </div>
-        <div className="section" data-anchor="VisionInfo">
+        <div className={styles.section} data-anchor="VisionInfo">
           <div className={styles.vision}>
             <h1>Our Vision</h1>
             <p>
@@ -65,7 +64,7 @@ function AboutInfo() {
             </p>
           </div>
         </div>
-        <div className="section" data-anchor="ValuesInfo">
+        <div className={styles.section} data-anchor="ValuesInfo">
           <div className={styles.values}>
             <h1>Our Values</h1>
             <p>
@@ -80,7 +79,7 @@ function AboutInfo() {
             </p>
           </div>
         </div>
-        <div className="section" data-anchor="LeadersInfo">
+        <div className={styles.section} data-anchor="LeadersInfo">
           <div className="slide" data-slide-tooltip="Konrad Barnes">
             <div className={styles.MD}>
               <img className={styles.MDP} src={MD} alt="Konrad Barnes" />
@@ -115,7 +114,7 @@ function AboutInfo() {
             </div>
           </div>
         </div>
-        <div className="section" data-anchor="InvestInfo">
+        <div className={styles.section} data-anchor="InvestInfo">
           <div className={styles.invest}>
             <h1>Investment Philosophy</h1>
             <p>
@@ -130,7 +129,7 @@ function AboutInfo() {
             </p>
           </div>
         </div>
-        <div className="section" data-anchor="PartnershipInfo">
+        <div className={styles.section} data-anchor="PartnershipInfo">
           <div className={styles.port}>
             <h1>Our Approach to Partnership</h1>
             <p>
@@ -144,7 +143,7 @@ function AboutInfo() {
             </p>
           </div>
         </div>
-        <div className="section" data-anchor="OwnershipInfo">
+        <div className={styles.section} data-anchor="OwnershipInfo">
           <div className={styles.owner}>
             <h1>Ownership</h1>
             <p>
@@ -158,7 +157,7 @@ function AboutInfo() {
             </p>
           </div>
         </div>
-        <div className="section" data-anchor="TimeInfo">
+        <div className={styles.section} data-anchor="TimeInfo">
           <div className={styles.time}>
             <h1>A Long-Term Orientation</h1>
             <p>
