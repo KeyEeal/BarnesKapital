@@ -16,6 +16,7 @@ function ContactInfo() {
         label: "Made with fullpage.js",
         position: "right",
       },
+      lisenceKey: "GPLv3", //Request pending
       autoScrolling: true,
       verticalCentered: true,
       scrollingSpeed: 700,

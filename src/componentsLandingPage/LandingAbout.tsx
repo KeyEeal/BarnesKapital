@@ -19,6 +19,7 @@ function LandingAbout() {
         label: "Made with fullpage.js",
         position: "right",
       },
+      lisenceKey: "GPLv3", //Request pending
       verticalCentered: true,
       scrollingSpeed: 700,
 

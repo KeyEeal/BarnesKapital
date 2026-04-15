@@ -6,12 +6,11 @@ function Footer() {
       <div className={styles.footerContent}>
         <p>&copy; 2025 Barnes Kapital. All rights reserved.</p>
         <p>Private & Discreet | Long-Term Value</p>
-        <p>Contact: info@barneskapital.com</p>
-        <p>This website uses fullPage.js</p>
+        <p>This website was built with fullPage.js</p>
+        <p></p>
         <p>
-          <a href="https://github.com/KeyEeal/BarnesKapital">
-            Click here to get Open Source files for this website.
-          </a>
+          Source code available under GPL-3.0 on GitHub:
+          <a href="https://github.com/KeyEeal/BarnesKapital"> Here</a>
         </p>
       </div>
     </footer>
