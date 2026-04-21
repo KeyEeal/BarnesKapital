@@ -3,13 +3,41 @@
   <head>
     <meta charset="UTF-8" />
     <link rel="stylesheet" href="index.css">
-    <link rel="icon" type="image/pngl" href="/src/images/logo/logo6.svg" />
+    <link rel="icon" type="image/png" href="/src/images/logo/logo6.svg" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Lexend+Exa:wght@100..900&display=swap" rel="stylesheet">
+
     <title>BarnesKapital</title>
+
+    <!-- JSON-LD GLOBAL ORGANIZATION SCHEMA -->
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@graph": [
+          {
+            "@type": "Organization",
+            "@id": "https://barneskapital.pages.dev/#organization",
+            "name": "Barnes Kapital",
+            "url": "https://barneskapital.pages.dev/",
+            "description": "Self-funded, family-owned private equity firm guided by Faith, Family, and Funds."
+          },
+          {
+            "@type": "WebSite",
+            "@id": "https://barneskapital.pages.dev/#website",
+            "url": "https://barneskapital.pages.dev/",
+            "name": "Barnes Kapital",
+            "publisher": {
+              "@id": "https://barneskapital.pages.dev/#organization"
+            }
+          }
+        ]
+      }
+    </script>
   </head>
+
   <body>
     <div id="root"></div>
     <script type="module" src="/src/main.tsx"></script>

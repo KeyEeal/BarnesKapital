@@ -7,11 +7,18 @@ import NavBar from "./MainLayoutComponents/NavBar";
 function MainLayout() {
   return (
     <>
+      {/* Skip navigation (must be first focusable element) */}
+      <a href="#main-content" className="skip-link">
+        Skip to main content
+      </a>
+
       <div className={styles.pageWrapper}>
         <NavBar />
-        <main className={styles.mainBox}>
+
+        <main id="main-content" className={styles.mainBox}>
           <Outlet />
         </main>
+
         <Footer />
       </div>
     </>
