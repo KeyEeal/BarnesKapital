@@ -1,5 +1,5 @@
 /* ============================================================
-   SECTION LAYOUT
+   SECTION LAYOUT ContactBody
    ============================================================ */
 .section {
     min-height: 100svh;
@@ -165,28 +165,13 @@
         background-size: contain;
     }
 
-    .story,
-    .mission,
-    .vision,
-    .KP1,
-    .KP2,
-    .values,
-    .invest,
-    .port,
-    .owner,
-    .time {
+    .Add,
+    .Comms,
+    .OppHours,
+    .Map,
+    .Socials {
         max-width: 720px;
         padding-inline: 0;
-    }
-
-    .MD,
-    .GM {
-        width: 250px;
-        height: 250px;
-    }
-
-    .swipeTextCoFounders {
-        display: none;
     }
 
     .section h1 {
