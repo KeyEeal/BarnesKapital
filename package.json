@@ -8,7 +8,8 @@
     "build": "npm run generate-sitemap && tsc -b && vite build",
     "generate-sitemap": "tsx scripts/generate-sitemap.ts",
     "lint": "eslint .",
-    "preview": "vite preview"
+    "preview": "npm run build && wrangler dev",
+    "deploy": "npm run build && wrangler deploy"
   },
   "dependencies": {
     "animejs": "^4.2.2",
@@ -21,6 +22,7 @@
     "react-router-dom": "^7.10.1"
   },
   "devDependencies": {
+    "@cloudflare/vite-plugin": "^1.32.2",
     "@eslint/js": "^9.39.1",
     "@types/animejs": "^3.1.13",
     "@types/bootstrap": "^5.2.10",
@@ -37,6 +39,7 @@
     "tsx": "^4.21.0",
     "typescript": "~5.9.3",
     "typescript-eslint": "^8.46.4",
-    "vite": "^7.2.4"
+    "vite": "^7.2.4",
+    "wrangler": "^4.82.2"
   }
 }
