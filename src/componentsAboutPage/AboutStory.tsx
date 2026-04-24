@@ -175,23 +175,23 @@ function AboutInfo() {
                 <div className={styles.KP1}>
                   <h2>Konrad Barnes</h2>
                   <p>Husband</p>
-                  <p className={styles.swipeTextCoFounders}>
+                  <p className={styles.swipeText}>
                     <img
                       className={styles.inlineArrow}
-                      src={RR}
+                      src={DR}
                       alt=""
                       aria-hidden="true"
                       loading="lazy"
                       decoding="async"
                       width="24"
                       height="24"
-                    />{" "}
-                    for Wife
+                    />
                   </p>
                 </div>
               </article>
             </div>
-
+          </section>
+          <section className={styles.section} data-anchor="LeadersInfo">
             <div className="slide" data-slide-tooltip="Bianca Barnes">
               <article aria-label="Co-Founder: Bianca Barnes">
                 <div className={styles.GM}>
@@ -219,7 +219,6 @@ function AboutInfo() {
                       width="24"
                       height="24"
                     />{" "}
-                    for Husband
                   </p>
                   <p className={styles.swipeText}>
                     <img
