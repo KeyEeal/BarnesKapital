@@ -1,6 +1,6 @@
-import "bootstrap/dist/css/bootstrap.min.css";
-import "bootstrap/dist/js/bootstrap.bundle.min.js";
+import { Helmet } from "react-helmet-async";
 import styles from "./css/AboutStory.module.css";
+import { aboutPageSchema } from "@/seo/schemas";
 import MD from "@/images/about/K-Placeholder.png";
 import GM from "@/images/about/B-Placeholder.png";
 import RR from "@/images/arrow/Arrow-right.svg";
@@ -8,97 +8,42 @@ import LR from "@/images/arrow/Arrow-left.svg";
 import DR from "@/images/arrow/Arrow-down.svg";
 import DRG from "@/images/arrow/Arrow-down-gif.gif";
 
-/**
- * JSON-LD Structured Data
- * Covers AboutPage + Organization + two Person entities.
- * Google can surface the co-founder profiles in Knowledge Panels
- * and use the AboutPage schema to understand the route's purpose.
- */
 const BASE_URL = "https://barneskapital.pages.dev/";
-
-export const aboutPageSchema = {
-  "@context": "https://schema.org",
-  "@graph": [
-    {
-      "@type": "AboutPage",
-      "@id": `${BASE_URL}/about#aboutpage`,
-      url: `${BASE_URL}/about`,
-      name: "Our Story | Barnes Kapital",
-      description:
-        "The founding story, mission, vision, values, and investment philosophy of Barnes Kapital—a self-funded, family-owned private equity firm.",
-      isPartOf: {
-        "@id": `${BASE_URL}/#website`,
-      },
-      about: {
-        "@id": `${BASE_URL}/#organization`,
-      },
-    },
-  ],
-};
-
-export const head = {
-  title: "Our Story | Barnes Kapital – Family-Owned Private Equity",
-
-  meta: [
-    {
-      name: "description",
-      content:
-        "Discover the story, mission, vision, and values behind Barnes Kapital—a self-funded, family-owned private equity firm built on faith, family, and patient stewardship of capital.",
-    },
-    { name: "robots", content: "index, follow" },
-
-    // Open Graph
-    { property: "og:type", content: "website" },
-    { property: "og:url", content: `${BASE_URL}/about` },
-    {
-      property: "og:title",
-      content: "Our Story | Barnes Kapital – Family-Owned Private Equity",
-    },
-    {
-      property: "og:description",
-      content:
-        "Discover the story, mission, vision, and values behind Barnes Kapital—a self-funded, family-owned private equity firm.",
-    },
-    {
-      property: "og:image",
-      content: `${BASE_URL}/og-image.jpg`,
-    },
-
-    // Twitter
-    { name: "twitter:card", content: "summary_large_image" },
-    {
-      name: "twitter:title",
-      content: "Our Story | Barnes Kapital – Family-Owned Private Equity",
-    },
-    {
-      name: "twitter:description",
-      content:
-        "Discover the story, mission, vision, and values behind Barnes Kapital.",
-    },
-    {
-      name: "twitter:image",
-      content: `${BASE_URL}/og-image.jpg`,
-    },
-  ],
-
-  link: [
-    {
-      rel: "canonical",
-      href: `${BASE_URL}/about`,
-    },
-  ],
-
-  script: [
-    {
-      type: "application/ld+json",
-      children: JSON.stringify(aboutPageSchema),
-    },
-  ],
-};
 
 function AboutInfo() {
   return (
     <>
+      <Helmet>
+        <title>Our Story | Barnes Kapital – Family-Owned Private Equity</title>
+        <meta
+          name="description"
+          content="Discover the story, mission, vision, and values behind Barnes Kapital—a self-funded, family-owned private equity firm built on faith, family, and patient stewardship of capital."
+        />
+        <meta name="robots" content="index, follow" />
+        <link rel="canonical" href={`${BASE_URL}about`} />
+        <meta property="og:type" content="website" />
+        <meta property="og:url" content={`${BASE_URL}about`} />
+        <meta
+          property="og:title"
+          content="Our Story | Barnes Kapital – Family-Owned Private Equity"
+        />
+        <meta
+          property="og:description"
+          content="Discover the story, mission, vision, and values behind Barnes Kapital—a self-funded, family-owned private equity firm."
+        />
+        <meta property="og:image" content={`${BASE_URL}og-image.jpg`} />
+        <meta name="twitter:card" content="summary_large_image" />
+        <meta
+          name="twitter:title"
+          content="Our Story | Barnes Kapital – Family-Owned Private Equity"
+        />
+        <meta
+          name="twitter:description"
+          content="Discover the story, mission, vision, and values behind Barnes Kapital."
+        />
+        <meta name="twitter:image" content={`${BASE_URL}og-image.jpg`} />
+      </Helmet>
+
       {/* ── Structured Data ─────────────────────────────────────────────── */}
       <script
         type="application/ld+json"
@@ -116,10 +61,6 @@ function AboutInfo() {
           {/*
            * This is the primary semantic entry point for the page.
            * ONE <h1> lives here; all remaining section titles become <h2>.
-           * This is the single most impactful fix in this file — the original
-           * had nine <h1> elements, which destroys heading hierarchy and
-           * dilutes keyword signals for every section equally, leaving Google
-           * with no clear topical priority on the page.
            */}
           <section className={styles.section} data-anchor="StoryInfo">
             <div className={styles.story}>
@@ -134,12 +75,6 @@ function AboutInfo() {
                 independently, align capital with values, and build something
                 intended to last.
               </p>
-              {/*
-               * Animated GIF is above the fold — loading="eager" prevents
-               * the browser from deprioritising it as a lazy-load candidate.
-               * It is a decorative scroll cue: alt="" + aria-hidden keeps it
-               * out of the accessibility tree entirely.
-               */}
               <p className={styles.swipeText}>
                 <img
                   className={styles.inlineArrowGif}
@@ -232,21 +167,8 @@ function AboutInfo() {
             </div>
           </section>
 
-          {/* ── 5. Co-Founders (horizontal slides) ───────────────────────── */}
-          {/*
-           * Both slides live inside a single .section div — this is how
-           * fullPage.js manages horizontal navigation within one vertical
-           * section. The structure is preserved exactly.
-           *
-           * Each profile is wrapped in <article> (self-contained biographical
-           * unit). Co-founder names are <h2> — correct level for named
-           * subsections within a page that already has its <h1>.
-           *
-           * The lateral navigation arrows ("for Wife" / "for Husband") carry
-           * meaningful surrounding text, so the arrow images themselves are
-           * marked aria-hidden. The visible text label retains its semantics.
-           */}
-          <section className={styles.section} data-anchor="LeadersInfo">
+          {/* ── 5. Co-Founders ───────────────────────── */}
+          <section className={styles.section} data-anchor="LeadersInfo1">
             <div className="slide" data-slide-tooltip="Konrad Barnes">
               <article aria-label="Co-Founder: Konrad Barnes">
                 <div className={styles.MD}>
@@ -274,12 +196,24 @@ function AboutInfo() {
                       width="24"
                       height="24"
                     />{" "}
-                    for Wife
                   </p>
                 </div>
+                <p className={styles.swipeText}>
+                  <img
+                    className={styles.inlineArrow}
+                    src={DR}
+                    alt=""
+                    aria-hidden="true"
+                    loading="lazy"
+                    decoding="async"
+                    width="24"
+                    height="24"
+                  />
+                </p>
               </article>
             </div>
-
+          </section>
+          <section className={styles.section} data-anchor="LeadersInfo2">
             <div className="slide" data-slide-tooltip="Bianca Barnes">
               <article aria-label="Co-Founder: Bianca Barnes">
                 <div className={styles.GM}>
@@ -307,21 +241,20 @@ function AboutInfo() {
                       width="24"
                       height="24"
                     />{" "}
-                    for Husband
-                  </p>
-                  <p className={styles.swipeText}>
-                    <img
-                      className={styles.inlineArrow}
-                      src={DR}
-                      alt=""
-                      aria-hidden="true"
-                      loading="lazy"
-                      decoding="async"
-                      width="24"
-                      height="24"
-                    />
                   </p>
                 </div>
+                <p className={styles.swipeText}>
+                  <img
+                    className={styles.inlineArrow}
+                    src={DR}
+                    alt=""
+                    aria-hidden="true"
+                    loading="lazy"
+                    decoding="async"
+                    width="24"
+                    height="24"
+                  />
+                </p>
               </article>
             </div>
           </section>

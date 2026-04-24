@@ -1,109 +1,49 @@
-import "bootstrap/dist/css/bootstrap.min.css";
+import { Helmet } from "react-helmet-async";
 import styles from "./css/LandingAbout.module.css";
+import { organizationSchema } from "@/seo/schemas";
 import MD from "@/images/about/K-Placeholder.png";
 import GM from "@/images/about/B-Placeholder.png";
 import DR from "@/images/arrow/Arrow-down.svg";
 import DRG from "@/images/arrow/Arrow-down-gif.gif";
 
-/**
- * JSON-LD Structured Data – Organization + AboutPage schemas.
- * Injected via a <script> tag inside the component so it travels
- * with the route without requiring a separate Helmet dependency.
- */
 const BASE_URL = "https://barneskapital.pages.dev/";
-
-export const organizationSchema = {
-  "@context": "https://schema.org",
-  "@graph": [
-    {
-      "@type": "Organization",
-      "@id": `${BASE_URL}/#organization`,
-      name: "Barnes Kapital",
-      url: `${BASE_URL}/`,
-      description:
-        "Barnes Kapital is a self-funded, family-owned private equity firm investing its own capital alongside a select number of businesses, guided by Faith, Family, and Funds.",
-      founders: [
-        {
-          "@type": "Person",
-          name: "Konrad Barnes",
-          jobTitle: "Co-Founder",
-          worksFor: { "@id": `${BASE_URL}/#organization` },
-        },
-        {
-          "@type": "Person",
-          name: "Bianca Barnes",
-          jobTitle: "Co-Founder",
-          worksFor: { "@id": `${BASE_URL}/#organization` },
-        },
-      ],
-    },
-  ],
-};
-
-export const head = {
-  title: "About Us | Barnes Kapital – Family-Owned Private Equity Firm",
-
-  meta: [
-    {
-      name: "description",
-      content:
-        "Barnes Kapital is a self-funded, family-owned private equity firm guided by Faith, Family, and Funds. We partner with owner-operators for long-term, stewardship-driven investment.",
-    },
-    { name: "robots", content: "index, follow" },
-
-    // Open Graph
-    { property: "og:type", content: "website" },
-    { property: "og:url", content: `${BASE_URL}/about` },
-    {
-      property: "og:title",
-      content: "About Barnes Kapital – Family-Owned Private Equity",
-    },
-    {
-      property: "og:description",
-      content:
-        "Faith. Family. Funds. A self-funded private equity firm built for patient, principle-led investing.",
-    },
-    {
-      property: "og:image",
-      content: `${BASE_URL}/og-image.jpg`,
-    },
-
-    // Twitter
-    { name: "twitter:card", content: "summary_large_image" },
-    {
-      name: "twitter:title",
-      content: "About Barnes Kapital – Family-Owned Private Equity",
-    },
-    {
-      name: "twitter:description",
-      content:
-        "Faith. Family. Funds. A self-funded private equity firm built for patient, principle-led investing.",
-    },
-    {
-      name: "twitter:image",
-      content: `${BASE_URL}/og-image.jpg`,
-    },
-  ],
-
-  link: [
-    {
-      rel: "canonical",
-      href: `${BASE_URL}/about`,
-    },
-  ],
-
-  // Inject JSON-LD properly
-  script: [
-    {
-      type: "application/ld+json",
-      children: JSON.stringify(organizationSchema),
-    },
-  ],
-};
 
 function LandingAbout() {
   return (
     <>
+      <Helmet>
+        <title>
+          About Us | Barnes Kapital – Family-Owned Private Equity Firm
+        </title>
+        <meta
+          name="description"
+          content="Barnes Kapital is a self-funded, family-owned private equity firm guided by Faith, Family, and Funds. We partner with owner-operators for long-term, stewardship-driven investment."
+        />
+        <meta name="robots" content="index, follow" />
+        <link rel="canonical" href={`${BASE_URL}`} />
+        <meta property="og:type" content="website" />
+        <meta property="og:url" content={BASE_URL} />
+        <meta
+          property="og:title"
+          content="About Barnes Kapital – Family-Owned Private Equity"
+        />
+        <meta
+          property="og:description"
+          content="Faith. Family. Funds. A self-funded private equity firm built for patient, principle-led investing."
+        />
+        <meta property="og:image" content={`${BASE_URL}og-image.jpg`} />
+        <meta name="twitter:card" content="summary_large_image" />
+        <meta
+          name="twitter:title"
+          content="About Barnes Kapital – Family-Owned Private Equity"
+        />
+        <meta
+          name="twitter:description"
+          content="Faith. Family. Funds. A self-funded private equity firm built for patient, principle-led investing."
+        />
+        <meta name="twitter:image" content={`${BASE_URL}og-image.jpg`} />
+      </Helmet>
+
       {/* ── Structured Data ─────────────────────────────────────────────── */}
       <script
         type="application/ld+json"
@@ -339,7 +279,7 @@ function LandingAbout() {
           {/* ── 8. Trust & Credibility ───────────────────────────────────── */}
           <section className={styles.section} data-anchor="trustCred">
             <div className={styles.trustCred}>
-              <h2>Trust &amp; Credibility Building</h2>
+              <h2>Trust & Credibility Building</h2>
               <p>
                 We invest as minority owners by design, typically around 30%.
                 Operators retain meaningful ownership and control. We do not

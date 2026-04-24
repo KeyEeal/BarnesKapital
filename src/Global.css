@@ -14,13 +14,12 @@ html, body {
 }
 
 /* For your page container (e.g., around <Outlet />) */
-._divBody_1qfhf_1 {
+.page-container {
   width: 100%; /* Full width of parent */
   max-width: 100vw; /* Cap at viewport width to prevent overflow */
   height: auto;
   margin: 0 auto; /* Center if needed */
   padding: 0 15px; /* Optional: Add side padding for mobile */
-  border: 3px solid black; /* Your debug border */
 }
 
 /* Make images and media responsive */

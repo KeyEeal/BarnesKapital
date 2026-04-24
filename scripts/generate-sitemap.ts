@@ -45,7 +45,7 @@ const ROUTES: RouteConfig[] = [
     path: "/",
     priority: 1.0,
     changefreq: "monthly",
-    sourceFile: "src/componentsLanding/LandingAbout.tsx",
+    sourceFile: "src/componentsLandingPage/LandingAbout.tsx",
   },
   {
     path: "/about",

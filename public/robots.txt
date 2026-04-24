@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://https://barneskapital.pages.dev//sitemap.xml
+Sitemap: https://barneskapital.pages.dev/sitemap.xml

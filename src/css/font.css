@@ -1,0 +1,11 @@
+* {
+    font-family: "Lexend Exa", sans-serif;
+    font-optical-sizing: auto;
+    font-weight: 400;
+    font-style: normal;
+}
+
+html, body {
+    -webkit-overflow-scrolling: touch;
+    overscroll-behavior: none;
+}

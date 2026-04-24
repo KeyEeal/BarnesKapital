@@ -1,137 +1,42 @@
-/**
- * ContactBody.tsx  (ContactInfo component)
- *
- * SEO METADATA — Paste the block below into public/index.html <head>,
- * or inject per-route via react-helmet-async on the /contact route.
- *
- * ── index.html HEAD block ──────────────────────────────────────────────────
- * <title>Contact | Barnes Kapital – Family-Owned Private Equity</title>
- * <meta name="description"
- *       content="Get in touch with Barnes Kapital. We welcome thoughtful inquiries from aligned founders and partners. Correspondence is reviewed carefully and responded to with due consideration." />
- * <meta name="robots" content="index, follow" />
- * <link rel="canonical" href="https://barneskapital.pages.dev/contact" />
- *
- * <!-- Open Graph -->
- * <meta property="og:type"        content="website" />
- * <meta property="og:url"         content="https://barneskapital.pages.dev/contact" />
- * <meta property="og:title"       content="Contact Barnes Kapital – Family-Owned Private Equity" />
- * <meta property="og:description" content="We welcome thoughtful inquiries from aligned founders and partners." />
- * <meta property="og:image"       content="https://barneskapital.pages.dev/og-image.jpg" />
- *
- * <!-- Twitter Card -->
- * <meta name="twitter:card"        content="summary_large_image" />
- * <meta name="twitter:title"       content="Contact Barnes Kapital" />
- * <meta name="twitter:description" content="We welcome thoughtful inquiries from aligned founders and partners." />
- * <meta name="twitter:image"       content="https://barneskapital.pages.dev/og-image.jpg" />
- *
- * <!-- Viewport (confirm present in index.html) -->
- * <meta name="viewport" content="width=device-width, initial-scale=1.0" />
- * ──────────────────────────────────────────────────────────────────────────
- */
-
-import "bootstrap/dist/css/bootstrap.min.css";
-import "bootstrap/dist/js/bootstrap.bundle.min.js";
+import { Helmet } from "react-helmet-async";
 import styles from "./css/ContactBody.module.css";
+import { contactPageSchema } from "@/seo/schemas";
 import DR from "@/images/arrow/Arrow-down.svg";
 import DRG from "@/images/arrow/Arrow-down-gif.gif";
 
-/**
- * JSON-LD Structured Data
- *
- * ContactPage schema signals to Google that this route is the canonical
- * contact destination for the organisation. Combined with the Organization
- * node (consistent with LandingAbout and AboutStory), it reinforces the
- * entity graph across the site and improves Knowledge Panel eligibility.
- *
- * NOTE: Consolidate the Organization node into a single site-level
- * injection (App.jsx or index.html) once all page schemas are in place,
- * to avoid duplicate entity declarations per route.
- */
 const BASE_URL = "https://barneskapital.pages.dev/";
-
-const contactPageSchema = {
-  "@context": "https://schema.org",
-  "@graph": [
-    {
-      "@type": "ContactPage",
-      "@id": `${BASE_URL}/contact#contactpage`,
-      url: `${BASE_URL}/contact`,
-      name: "Contact | Barnes Kapital",
-      description:
-        "Barnes Kapital welcomes thoughtful inquiries from aligned founders and partners. Correspondence is reviewed carefully and responded to with due consideration.",
-      isPartOf: {
-        "@id": `${BASE_URL}/#website`,
-      },
-      about: {
-        "@id": `${BASE_URL}/#organization`,
-      },
-    },
-  ],
-};
-
-export const head = {
-  title: "Contact | Barnes Kapital – Family-Owned Private Equity",
-
-  meta: [
-    {
-      name: "description",
-      content:
-        "Get in touch with Barnes Kapital. We welcome thoughtful inquiries from aligned founders and partners. Correspondence is reviewed carefully and responded to with due consideration.",
-    },
-    { name: "robots", content: "index, follow" },
-
-    // Open Graph
-    { property: "og:type", content: "website" },
-    { property: "og:url", content: `${BASE_URL}/contact` },
-    {
-      property: "og:title",
-      content: "Contact Barnes Kapital – Family-Owned Private Equity",
-    },
-    {
-      property: "og:description",
-      content:
-        "We welcome thoughtful inquiries from aligned founders and partners.",
-    },
-    {
-      property: "og:image",
-      content: `${BASE_URL}/og-image.jpg`,
-    },
-
-    // Twitter
-    { name: "twitter:card", content: "summary_large_image" },
-    {
-      name: "twitter:title",
-      content: "Contact Barnes Kapital",
-    },
-    {
-      name: "twitter:description",
-      content:
-        "We welcome thoughtful inquiries from aligned founders and partners.",
-    },
-    {
-      name: "twitter:image",
-      content: `${BASE_URL}/og-image.jpg`,
-    },
-  ],
-
-  link: [
-    {
-      rel: "canonical",
-      href: `${BASE_URL}/contact`,
-    },
-  ],
-
-  script: [
-    {
-      type: "application/ld+json",
-      children: JSON.stringify(contactPageSchema),
-    },
-  ],
-};
 
 function ContactInfo() {
   return (
     <>
+      <Helmet>
+        <title>Contact | Barnes Kapital – Family-Owned Private Equity</title>
+        <meta
+          name="description"
+          content="Get in touch with Barnes Kapital. We welcome thoughtful inquiries from aligned founders and partners. Correspondence is reviewed carefully and responded to with due consideration."
+        />
+        <meta name="robots" content="index, follow" />
+        <link rel="canonical" href={`${BASE_URL}contact`} />
+        <meta property="og:type" content="website" />
+        <meta property="og:url" content={`${BASE_URL}contact`} />
+        <meta
+          property="og:title"
+          content="Contact Barnes Kapital – Family-Owned Private Equity"
+        />
+        <meta
+          property="og:description"
+          content="We welcome thoughtful inquiries from aligned founders and partners."
+        />
+        <meta property="og:image" content={`${BASE_URL}og-image.jpg`} />
+        <meta name="twitter:card" content="summary_large_image" />
+        <meta name="twitter:title" content="Contact Barnes Kapital" />
+        <meta
+          name="twitter:description"
+          content="We welcome thoughtful inquiries from aligned founders and partners."
+        />
+        <meta name="twitter:image" content={`${BASE_URL}og-image.jpg`} />
+      </Helmet>
+
       {/* ── Structured Data ─────────────────────────────────────────────── */}
       <script
         type="application/ld+json"
@@ -155,12 +60,6 @@ function ContactInfo() {
                 public-facing office presence. Location details are shared
                 directly when appropriate.
               </p>
-              {/*
-               * Animated GIF is above the fold — loading="eager" prevents
-               * the browser from deprioritising it as a lazy-load candidate,
-               * protecting LCP. Decorative scroll cue: alt="" + aria-hidden
-               * removes it from the accessibility tree entirely.
-               */}
               <p className={styles.swipeText}>
                 <img
                   className={styles.inlineArrowGif}
