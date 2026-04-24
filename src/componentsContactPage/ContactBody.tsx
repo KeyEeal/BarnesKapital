@@ -1,4 +1,4 @@
-import { Helmet } from "react-helmet-async";
+import { PageMeta } from "@/seo/PageMeta";
 import styles from "./css/ContactBody.module.css";
 import { contactPageSchema } from "@/seo/schemas";
 import DR from "@/images/arrow/Arrow-down.svg";
@@ -9,33 +9,26 @@ const BASE_URL = "https://barneskapital.pages.dev/";
 function ContactInfo() {
   return (
     <>
-      <Helmet>
-        <title>Contact | Barnes Kapital – Family-Owned Private Equity</title>
-        <meta
-          name="description"
-          content="Get in touch with Barnes Kapital. We welcome thoughtful inquiries from aligned founders and partners. Correspondence is reviewed carefully and responded to with due consideration."
-        />
-        <meta name="robots" content="index, follow" />
-        <link rel="canonical" href={`${BASE_URL}contact`} />
-        <meta property="og:type" content="website" />
-        <meta property="og:url" content={`${BASE_URL}contact`} />
-        <meta
-          property="og:title"
-          content="Contact Barnes Kapital – Family-Owned Private Equity"
-        />
-        <meta
-          property="og:description"
-          content="We welcome thoughtful inquiries from aligned founders and partners."
-        />
-        <meta property="og:image" content={`${BASE_URL}og-image.jpg`} />
-        <meta name="twitter:card" content="summary_large_image" />
-        <meta name="twitter:title" content="Contact Barnes Kapital" />
-        <meta
-          name="twitter:description"
-          content="We welcome thoughtful inquiries from aligned founders and partners."
-        />
-        <meta name="twitter:image" content={`${BASE_URL}og-image.jpg`} />
-      </Helmet>
+      <PageMeta
+        title="Contact | Barnes Kapital – Family-Owned Private Equity"
+        description="Get in touch with Barnes Kapital. We welcome thoughtful inquiries from aligned founders and partners. Correspondence is reviewed carefully and responded to with due consideration."
+        canonical={`${BASE_URL}contact`}
+        og={{
+          type: "website",
+          url: `${BASE_URL}contact`,
+          title: "Contact Barnes Kapital – Family-Owned Private Equity",
+          description:
+            "We welcome thoughtful inquiries from aligned founders and partners.",
+          image: `${BASE_URL}og-image.jpg`,
+        }}
+        twitter={{
+          card: "summary_large_image",
+          title: "Contact Barnes Kapital",
+          description:
+            "We welcome thoughtful inquiries from aligned founders and partners.",
+          image: `${BASE_URL}og-image.jpg`,
+        }}
+      />
 
       {/* ── Structured Data ─────────────────────────────────────────────── */}
       <script

@@ -1,4 +1,4 @@
-import { Helmet } from "react-helmet-async";
+import { PageMeta } from "@/seo/PageMeta";
 import styles from "./css/AboutStory.module.css";
 import { aboutPageSchema } from "@/seo/schemas";
 import MD from "@/images/about/K-Placeholder.png";
@@ -13,36 +13,26 @@ const BASE_URL = "https://barneskapital.pages.dev/";
 function AboutInfo() {
   return (
     <>
-      <Helmet>
-        <title>Our Story | Barnes Kapital – Family-Owned Private Equity</title>
-        <meta
-          name="description"
-          content="Discover the story, mission, vision, and values behind Barnes Kapital—a self-funded, family-owned private equity firm built on faith, family, and patient stewardship of capital."
-        />
-        <meta name="robots" content="index, follow" />
-        <link rel="canonical" href={`${BASE_URL}about`} />
-        <meta property="og:type" content="website" />
-        <meta property="og:url" content={`${BASE_URL}about`} />
-        <meta
-          property="og:title"
-          content="Our Story | Barnes Kapital – Family-Owned Private Equity"
-        />
-        <meta
-          property="og:description"
-          content="Discover the story, mission, vision, and values behind Barnes Kapital—a self-funded, family-owned private equity firm."
-        />
-        <meta property="og:image" content={`${BASE_URL}og-image.jpg`} />
-        <meta name="twitter:card" content="summary_large_image" />
-        <meta
-          name="twitter:title"
-          content="Our Story | Barnes Kapital – Family-Owned Private Equity"
-        />
-        <meta
-          name="twitter:description"
-          content="Discover the story, mission, vision, and values behind Barnes Kapital."
-        />
-        <meta name="twitter:image" content={`${BASE_URL}og-image.jpg`} />
-      </Helmet>
+      <PageMeta
+        title="Our Story | Barnes Kapital – Family-Owned Private Equity"
+        description="Discover the story, mission, vision, and values behind Barnes Kapital—a self-funded, family-owned private equity firm built on faith, family, and patient stewardship of capital."
+        canonical={`${BASE_URL}about`}
+        og={{
+          type: "website",
+          url: `${BASE_URL}about`,
+          title: "Our Story | Barnes Kapital – Family-Owned Private Equity",
+          description:
+            "Discover the story, mission, vision, and values behind Barnes Kapital—a self-funded, family-owned private equity firm.",
+          image: `${BASE_URL}og-image.jpg`,
+        }}
+        twitter={{
+          card: "summary_large_image",
+          title: "Our Story | Barnes Kapital – Family-Owned Private Equity",
+          description:
+            "Discover the story, mission, vision, and values behind Barnes Kapital.",
+          image: `${BASE_URL}og-image.jpg`,
+        }}
+      />
 
       {/* ── Structured Data ─────────────────────────────────────────────── */}
       <script
@@ -167,8 +157,8 @@ function AboutInfo() {
             </div>
           </section>
 
-          {/* ── 5. Co-Founders ───────────────────────── */}
-          <section className={styles.section} data-anchor="LeadersInfo1">
+          {/* ── 5. Co-Founders (horizontal slides) ───────────────────────── */}
+          <section className={styles.section} data-anchor="LeadersInfo">
             <div className="slide" data-slide-tooltip="Konrad Barnes">
               <article aria-label="Co-Founder: Konrad Barnes">
                 <div className={styles.MD}>
@@ -196,24 +186,12 @@ function AboutInfo() {
                       width="24"
                       height="24"
                     />{" "}
+                    for Wife
                   </p>
                 </div>
-                <p className={styles.swipeText}>
-                  <img
-                    className={styles.inlineArrow}
-                    src={DR}
-                    alt=""
-                    aria-hidden="true"
-                    loading="lazy"
-                    decoding="async"
-                    width="24"
-                    height="24"
-                  />
-                </p>
               </article>
             </div>
-          </section>
-          <section className={styles.section} data-anchor="LeadersInfo2">
+
             <div className="slide" data-slide-tooltip="Bianca Barnes">
               <article aria-label="Co-Founder: Bianca Barnes">
                 <div className={styles.GM}>
@@ -241,20 +219,21 @@ function AboutInfo() {
                       width="24"
                       height="24"
                     />{" "}
+                    for Husband
+                  </p>
+                  <p className={styles.swipeText}>
+                    <img
+                      className={styles.inlineArrow}
+                      src={DR}
+                      alt=""
+                      aria-hidden="true"
+                      loading="lazy"
+                      decoding="async"
+                      width="24"
+                      height="24"
+                    />
                   </p>
                 </div>
-                <p className={styles.swipeText}>
-                  <img
-                    className={styles.inlineArrow}
-                    src={DR}
-                    alt=""
-                    aria-hidden="true"
-                    loading="lazy"
-                    decoding="async"
-                    width="24"
-                    height="24"
-                  />
-                </p>
               </article>
             </div>
           </section>
