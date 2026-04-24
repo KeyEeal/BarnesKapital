@@ -3,8 +3,6 @@ import styles from "./css/AboutStory.module.css";
 import { aboutPageSchema } from "@/seo/schemas";
 import MD from "@/images/about/K-Placeholder.png";
 import GM from "@/images/about/B-Placeholder.png";
-import RR from "@/images/arrow/Arrow-right.svg";
-import LR from "@/images/arrow/Arrow-left.svg";
 import DR from "@/images/arrow/Arrow-down.svg";
 import DRG from "@/images/arrow/Arrow-down-gif.gif";
 
@@ -208,18 +206,6 @@ function AboutInfo() {
                 <div className={styles.KP2}>
                   <h2>Bianca</h2>
                   <p>Wife</p>
-                  <p className={styles.swipeTextCoFounders}>
-                    <img
-                      className={styles.inlineArrow}
-                      src={LR}
-                      alt=""
-                      aria-hidden="true"
-                      loading="lazy"
-                      decoding="async"
-                      width="24"
-                      height="24"
-                    />{" "}
-                  </p>
                   <p className={styles.swipeText}>
                     <img
                       className={styles.inlineArrow}
