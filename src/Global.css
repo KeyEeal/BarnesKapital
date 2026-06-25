@@ -2,31 +2,15 @@
 *,
 *::before,
 *::after {
-  box-sizing: border-box;
+  box-sizing: border-box; /* Already in your styles, but reinforce */
 }
 
-:root {
-  color: #121814;
-  background: #fffbfc;
-  font-synthesis: none;
-  text-rendering: optimizeLegibility;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-}
 
-html,
-body,
-#root {
+html, body {
   margin: 0;
   padding: 0;
-  width: 100%;
-  min-width: 320px;
-  min-height: 100%;
-  overflow-x: hidden;
-}
-
-body {
-  background: #fffbfc;
+  width: 100%; /* Full width */
+  overflow-x: hidden; /* Hide horizontal overflow as a safety net */
 }
 
 /* For your page container (e.g., around <Outlet />) */
@@ -51,6 +35,16 @@ p, div, span {
   overflow-wrap: break-word; /* Modern equivalent */
 }
 
+/* For Bootstrap containers – use fluid for full width */
+.container-fluid {
+  width: 100%;
+  max-width: 100%; /* Override any fixed max-width */
+  padding-right: var(--bs-gutter-x, 0.75rem);
+  padding-left: var(--bs-gutter-x, 0.75rem);
+  margin-right: auto;
+  margin-left: auto;
+}
+
 .skip-link {
   position: absolute;
   top: -40px;
@@ -64,21 +58,4 @@ p, div, span {
 
 .skip-link:focus {
   top: 0;
-}
-
-a:focus-visible,
-button:focus-visible {
-  outline: 2px solid #919692;
-  outline-offset: 3px;
-}
-
-@media (prefers-reduced-motion: reduce) {
-  *,
-  *::before,
-  *::after {
-    animation-duration: 0.01ms !important;
-    animation-iteration-count: 1 !important;
-    scroll-behavior: auto !important;
-    transition-duration: 0.01ms !important;
-  }
 }

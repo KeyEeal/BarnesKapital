@@ -96,7 +96,7 @@ function getLastMod(sourceFile?: string): string {
  */
 function toAbsoluteUrl(base: string, path: string): string {
   const normBase = base.replace(/\/$/, "");
-  const normPath = path === "/" ? "/" : path;
+  const normPath = path === "/" ? "" : path;
   return `${normBase}${normPath}`;
 }
 

@@ -1,20 +1,14 @@
-import { useRef } from "react";
 import { PageMeta } from "@/seo/PageMeta";
 import styles from "./css/AboutStory.module.css";
 import { aboutPageSchema } from "@/seo/schemas";
-import { useLenisSnap } from "@/hooks/useLenisSnap";
 import MD from "@/images/about/K-Placeholder.png";
 import GM from "@/images/about/B-Placeholder.png";
 import DR from "@/images/arrow/Arrow-down.svg";
+import DRG from "@/images/arrow/Arrow-down-gif.gif";
 
 const BASE_URL = "https://barneskapital.pages.dev/";
 
 function AboutInfo() {
-  const scrollerRef = useRef<HTMLDivElement>(null);
-  const contentRef = useRef<HTMLDivElement>(null);
-
-  useLenisSnap(scrollerRef, contentRef);
-
   return (
     <>
       <PageMeta
@@ -27,14 +21,14 @@ function AboutInfo() {
           title: "Our Story | Barnes Kapital – Family-Owned Private Equity",
           description:
             "Discover the story, mission, vision, and values behind Barnes Kapital—a self-funded, family-owned private equity firm.",
-          image: `${BASE_URL}og-image.svg`,
+          image: `${BASE_URL}og-image.jpg`,
         }}
         twitter={{
           card: "summary_large_image",
           title: "Our Story | Barnes Kapital – Family-Owned Private Equity",
           description:
             "Discover the story, mission, vision, and values behind Barnes Kapital.",
-          image: `${BASE_URL}og-image.svg`,
+          image: `${BASE_URL}og-image.jpg`,
         }}
       />
 
@@ -47,11 +41,10 @@ function AboutInfo() {
       />
 
       {/* ── Page Shell ──────────────────────────────────────────────────── */}
-      <div className={styles.pageWrapper}>
+      <main className={styles.pageWrapper}>
         <div className={styles.pageBackground} aria-hidden="true" />
 
-        <div className={styles.fullpage} ref={scrollerRef}>
-          <div className={styles.snapContent} ref={contentRef}>
+        <div className={styles.fullpage}>
           {/* ── 1. Founding Story ────────────────────────────────────────── */}
           {/*
            * This is the primary semantic entry point for the page.
@@ -73,7 +66,7 @@ function AboutInfo() {
               <p className={styles.swipeText}>
                 <img
                   className={styles.inlineArrowGif}
-                  src={DR}
+                  src={DRG}
                   alt=""
                   aria-hidden="true"
                   loading="eager"
@@ -320,9 +313,8 @@ function AboutInfo() {
               </p>
             </div>
           </section>
-          </div>
         </div>
-      </div>
+      </main>
     </>
   );
 }

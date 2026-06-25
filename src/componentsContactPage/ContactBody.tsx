@@ -1,18 +1,12 @@
-import { useRef } from "react";
 import { PageMeta } from "@/seo/PageMeta";
 import styles from "./css/ContactBody.module.css";
 import { contactPageSchema } from "@/seo/schemas";
-import { useLenisSnap } from "@/hooks/useLenisSnap";
 import DR from "@/images/arrow/Arrow-down.svg";
+import DRG from "@/images/arrow/Arrow-down-gif.gif";
 
 const BASE_URL = "https://barneskapital.pages.dev/";
 
 function ContactInfo() {
-  const scrollerRef = useRef<HTMLDivElement>(null);
-  const contentRef = useRef<HTMLDivElement>(null);
-
-  useLenisSnap(scrollerRef, contentRef);
-
   return (
     <>
       <PageMeta
@@ -25,14 +19,14 @@ function ContactInfo() {
           title: "Contact Barnes Kapital – Family-Owned Private Equity",
           description:
             "We welcome thoughtful inquiries from aligned founders and partners.",
-          image: `${BASE_URL}og-image.svg`,
+          image: `${BASE_URL}og-image.jpg`,
         }}
         twitter={{
           card: "summary_large_image",
           title: "Contact Barnes Kapital",
           description:
             "We welcome thoughtful inquiries from aligned founders and partners.",
-          image: `${BASE_URL}og-image.svg`,
+          image: `${BASE_URL}og-image.jpg`,
         }}
       />
 
@@ -45,11 +39,10 @@ function ContactInfo() {
       />
 
       {/* ── Page Shell ──────────────────────────────────────────────────── */}
-      <div className={styles.pageWrapper}>
+      <main className={styles.pageWrapper}>
         <div className={styles.pageBackground} aria-hidden="true" />
 
-        <div className={styles.fullpage} ref={scrollerRef}>
-          <div className={styles.snapContent} ref={contentRef}>
+        <div className={styles.fullpage}>
           {/* ── 1. Location ──────────────────────────────────────────────── */}
           <section className={styles.section} data-anchor="AddressInfo">
             <div className={styles.Add}>
@@ -63,7 +56,7 @@ function ContactInfo() {
               <p className={styles.swipeText}>
                 <img
                   className={styles.inlineArrowGif}
-                  src={DR}
+                  src={DRG}
                   alt=""
                   aria-hidden="true"
                   loading="eager"
@@ -159,9 +152,8 @@ function ContactInfo() {
               </p>
             </div>
           </section>
-          </div>
         </div>
-      </div>
+      </main>
     </>
   );
 }

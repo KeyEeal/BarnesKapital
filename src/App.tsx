@@ -1,10 +1,12 @@
 import { lazy, Suspense } from "react";
+import "bootstrap/dist/css/bootstrap.min.css";
+import "bootstrap/dist/js/bootstrap.bundle.min.js";
 import "./css/font.css";
 import { Route, Routes } from "react-router-dom";
 import MainLayout from "./layout/MainLayout";
 import { ErrorBoundary } from "./components/ErrorBoundary";
-import LandingPage from "./Pages/LandingPage";
 
+const LandingPage = lazy(() => import("./Pages/LandingPage"));
 const About = lazy(() => import("./Pages/About"));
 const Contact = lazy(() => import("./Pages/Contact"));
 const NotFound = lazy(() => import("./Pages/NotFound"));
@@ -25,7 +27,7 @@ function App() {
               fontFamily: "'Helvetica Neue', Helvetica, Arial, sans-serif",
             }}
           >
-            <p>Loading...</p>
+            <p>Loading…</p>
           </div>
         }
       >
