@@ -1,14 +1,20 @@
+import { useRef } from "react";
 import { PageMeta } from "@/seo/PageMeta";
 import styles from "./css/LandingAbout.module.css";
 import { organizationSchema } from "@/seo/schemas";
+import { useLenisSnap } from "@/hooks/useLenisSnap";
 import MD from "@/images/about/K-Placeholder.png";
 import GM from "@/images/about/B-Placeholder.png";
 import DR from "@/images/arrow/Arrow-down.svg";
-import DRG from "@/images/arrow/Arrow-down-gif.gif";
 
 const BASE_URL = "https://barneskapital.pages.dev/";
 
 function LandingAbout() {
+  const scrollerRef = useRef<HTMLDivElement>(null);
+  const contentRef = useRef<HTMLDivElement>(null);
+
+  useLenisSnap(scrollerRef, contentRef);
+
   return (
     <>
       <PageMeta
@@ -21,14 +27,14 @@ function LandingAbout() {
           title: "About Barnes Kapital – Family-Owned Private Equity",
           description:
             "Faith. Family. Funds. A self-funded private equity firm built for patient, principle-led investing.",
-          image: `${BASE_URL}og-image.jpg`,
+          image: `${BASE_URL}og-image.svg`,
         }}
         twitter={{
           card: "summary_large_image",
           title: "About Barnes Kapital – Family-Owned Private Equity",
           description:
             "Faith. Family. Funds. A self-funded private equity firm built for patient, principle-led investing.",
-          image: `${BASE_URL}og-image.jpg`,
+          image: `${BASE_URL}og-image.svg`,
         }}
       />
 
@@ -41,10 +47,11 @@ function LandingAbout() {
       />
 
       {/* ── Page Shell ──────────────────────────────────────────────────── */}
-      <main className={styles.pageWrapper}>
+      <div className={styles.pageWrapper}>
         <div className={styles.pageBackground} aria-hidden="true" />
 
-        <div className={styles.fullpage}>
+        <div className={styles.fullpage} ref={scrollerRef}>
+          <div className={styles.snapContent} ref={contentRef}>
           {/* ── 1. Intro ─────────────────────────────────────────────────── */}
           <section className={styles.section} data-anchor="intro">
             <div className={styles.intro}>
@@ -61,7 +68,7 @@ function LandingAbout() {
               <p className={styles.swipeText}>
                 <img
                   className={styles.inlineArrowGif}
-                  src={DRG}
+                  src={DR}
                   alt=""
                   aria-hidden="true"
                   loading="eager"
@@ -300,8 +307,9 @@ function LandingAbout() {
               </p>
             </div>
           </section>
+          </div>
         </div>
-      </main>
+      </div>
     </>
   );
 }

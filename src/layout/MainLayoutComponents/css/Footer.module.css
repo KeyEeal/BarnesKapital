@@ -13,9 +13,11 @@
 
   text-align: center;
   z-index: 50;
+  pointer-events: none;
 
   /* subtle separation without a visible bar */
   backdrop-filter: blur(2px);
+  -webkit-backdrop-filter: blur(2px);
 }
 
 .footerContent {
@@ -30,6 +32,17 @@
   line-height: 1;
   letter-spacing: 0.4px;
   white-space: nowrap;
+}
+
+.footerContent a {
+  color: inherit;
+  pointer-events: auto;
+  text-decoration-thickness: 1px;
+  text-underline-offset: 3px;
+}
+
+.footerContent a:hover {
+  color: #121814;
 }
 
 /* Mobile: stack gently, still thin */

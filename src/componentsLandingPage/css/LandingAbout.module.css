@@ -2,21 +2,22 @@
    SECTION LAYOUT LandingAbout
    ============================================================ */
 .section {
-    min-height: 100svh;
+    height: 100vh;
+    height: 100svh;
+    min-height: 0;
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    padding: 0;
-    scroll-snap-align: start;
-    scroll-snap-stop: always;
+    padding: clamp(88px, 12vh, 116px) clamp(20px, 4vw, 48px) clamp(96px, 13vh, 128px);
     position: relative;
     box-sizing: border-box;
+    contain: layout paint;
 }
 
 @supports not (height: 100svh) {
     .section {
-        min-height: 100vh;
+        height: 100vh;
     }
 }
 
@@ -29,17 +30,20 @@
     background-image: url("@/images/background/BARNES\ KAPITAL.svg");
     background-size: cover;
     background-position: center;
+    background-repeat: no-repeat;
     z-index: 0;
-    will-change: transform;
+    pointer-events: none;
 }
 
 .pageWrapper {
   position: relative;           /* keeps the background pinned */
-  height: 100vh;                /* ← crucial */
-  width: 100vw;
+  height: 100vh;
+  height: 100svh;
+  width: 100%;
   overflow: hidden;             /* prevents body scroll */
   margin: 0;
   padding: 0;
+  color: #121814;
 }
 
 /* ============================================================
@@ -48,14 +52,17 @@
 .fullpage {
   height: 100%;                            /* fills the locked viewport */
   overflow-y: auto;                        /* ← vertical only */
-  scroll-snap-type: y mandatory;           /* strong full-page snapping */
-  scroll-behavior: smooth;
+  overscroll-behavior-y: contain;
   -webkit-overflow-scrolling: touch;       /* smooth momentum on iOS */
   scrollbar-width: none;                   /* hide scrollbar (optional) */
 }
 
 .fullpage::-webkit-scrollbar {
   display: none;
+}
+
+.snapContent {
+    min-height: 100%;
 }
 
 /* ============================================================
@@ -116,14 +123,17 @@
     height: 16px;
     vertical-align: middle;
     margin: 0 4px;
+    opacity: 0.82;
 }
 
 .inlineArrowGif {
     display: inline-block;
-    width: 40px;
-    height: 40px;
+    width: 32px;
+    height: 32px;
     vertical-align: middle;
     margin: 0 4px;
+    opacity: 0.86;
+    animation: arrowFloat 1.8s cubic-bezier(0.45, 0, 0.2, 1) infinite;
 }
 
 /* ============================================================
@@ -155,15 +165,43 @@
 .section h1 {
     font-size: clamp(28px, 6vw, 36px);
     line-height: 1.2;
+    text-wrap: balance;
 }
 
 .section h2 {
     font-size: 24px;
+    text-wrap: balance;
 }
 
 .section p {
     font-size: 16px;
     line-height: 1.6;
+    text-wrap: pretty;
+}
+
+@keyframes arrowFloat {
+    0%, 100% {
+        transform: translateY(0);
+    }
+
+    50% {
+        transform: translateY(7px);
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .fullpage {
+        scroll-behavior: auto;
+        scroll-snap-type: y proximity;
+    }
+
+    .section {
+        scroll-snap-align: start;
+    }
+
+    .inlineArrowGif {
+        animation: none;
+    }
 }
 
 /* ============================================================

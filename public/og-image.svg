@@ -1,0 +1,11 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="630" viewBox="0 0 1200 630" role="img" aria-labelledby="title desc">
+  <title id="title">Barnes Kapital</title>
+  <desc id="desc">Barnes Kapital social preview image</desc>
+  <rect width="1200" height="630" fill="#fffbfc"/>
+  <rect x="52" y="52" width="1096" height="526" rx="18" fill="#121814"/>
+  <circle cx="600" cy="276" r="112" fill="none" stroke="#919692" stroke-width="2"/>
+  <circle cx="600" cy="276" r="78" fill="none" stroke="#3f4a43" stroke-width="8"/>
+  <text x="600" y="274" text-anchor="middle" font-family="Georgia, 'Times New Roman', serif" font-size="84" font-weight="700" fill="#fffbfc">BK</text>
+  <text x="600" y="410" text-anchor="middle" font-family="Lexend Exa, Arial, sans-serif" font-size="44" font-weight="500" letter-spacing="6" fill="#fffbfc">Barnes Kapital</text>
+  <text x="600" y="468" text-anchor="middle" font-family="Lexend Exa, Arial, sans-serif" font-size="22" font-weight="400" letter-spacing="3" fill="#919692">Faith. Family. Funds.</text>
+</svg>
